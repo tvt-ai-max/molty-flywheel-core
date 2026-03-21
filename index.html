@@ -52,5 +52,61 @@
         </div>
         
     </div>
+
+    <!-- Affitor Tracker & Google Sheets: Lead Signup -->
+    <script type="module">
+        import { loadAffitor } from 'https://esm.sh/@affitor/tracker';
+
+        // Cấu hình Backend
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwOM87hR1-wI7kXoOqmgKhTJHU_vZ-Nw2fy_KyDc-9mhqzxeXSZHCfVQPBC0iMHe7MG8w/exec';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); 
+                
+                const emailInput = form.querySelector('input[name="email"]').value;
+                
+                // Trạng thái xử lý trên nút
+                submitBtn.innerHTML = 'HỆ THỐNG ĐANG GHI NHẬN... 🦞';
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.7';
+
+                try {
+                    // 1. Gửi dữ liệu về Google Sheet (tab data)
+                    const formData = new FormData();
+                    formData.append('email', emailInput);
+
+                    const sheetTask = fetch(GOOGLE_SCRIPT_URL, { 
+                        method: 'POST', 
+                        body: formData,
+                        mode: 'no-cors' // Quan trọng để bypass CORS của Google Apps Script
+                    });
+
+                    // 2. Bắn Lead về Affitor Tracker (ID 249)
+                    const affitorTask = (async () => {
+                        try {
+                            const affitor = await loadAffitor('249');
+                            const internalId = 'molty_' + Math.random().toString(36).substring(2, 10);
+                            await affitor?.signup(internalId, emailInput);
+                        } catch (err) {
+                            console.warn('Affitor Tracker bypass:', err);
+                        }
+                    })();
+
+                    // Chạy song song cả 2 tác vụ để tối ưu tốc độ
+                    await Promise.all([sheetTask, affitorTask]);
+
+                } catch (error) {
+                    console.error('Lỗi hệ thống:', error);
+                } finally {
+                    // Cuối cùng luôn chuyển hướng sang trang thank-you.html có kèm param
+                    window.location.href = `thank-you.html?email=${encodeURIComponent(emailInput)}`;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
