@@ -1,59 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoltyFlywheel OS | AI Agent Economy</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Roboto:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
-        body { font-family: 'Roboto', sans-serif; background-color: #0F172A; color: #F8FAFC; }
-        h1, h2, h3, h4, h5, h6, .headline-font { font-family: 'Montserrat', sans-serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .primary-card { background: linear-gradient(145deg, #1E293B, #0F172A); border: 1px solid #334155; }
-        .accent-text { font-family: 'JetBrains Mono', monospace; color: #FF5733; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .headline-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .primary-card {
+            background: linear-gradient(145deg, #1E293B, #0F172A);
+            border: 1px solid #334155;
+        }
+
+        .accent-text {
+            font-family: 'JetBrains Mono', monospace;
+            color: #FF5733;
+        }
     </style>
 </head>
+
 <body class="flex items-center justify-center min-h-screen p-4 relative">
     <!-- Grid Overlay for "Hacking" Feel -->
-    <div class="absolute inset-0 z-0 opacity-10" style="background-image: radial-gradient(#64748B 1px, transparent 1px); background-size: 30px 30px;"></div>
+    <div class="absolute inset-0 z-0 opacity-10"
+        style="background-image: radial-gradient(#64748B 1px, transparent 1px); background-size: 30px 30px;"></div>
 
     <div class="max-w-3xl w-full primary-card rounded-2xl p-8 md:p-12 shadow-2xl relative z-10 overflow-hidden">
         <!-- Top Colored Line -->
         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF5733] via-[#10B981] to-[#6366F1]"></div>
-        
+
         <div class="text-center mb-8">
             <div class="text-6xl mb-4 animate-bounce">🦞</div>
             <p class="accent-text text-sm uppercase tracking-widest font-bold mb-4">MoltyFlywheel OS v1.0</p>
-            <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-6">Cách tôi cấu hình máy <span class="border-b-4 border-[#10B981]">Mac Mini M2</span> & AI Agent tự động bú <span class="text-[#10B981]">$3,810/tháng</span> từ Affitor.</h1>
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto">Không lý thuyết suông. Không website nặng nề. Nhập Email bên dưới để tôi gửi toàn bộ <strong class="text-white">Source Code, Vercel Config, và Setup Guide 30 Phút</strong> thẳng vào Inbox của bạn.</p>
+            <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-6">Cách tôi cấu hình máy <span
+                    class="border-b-4 border-[#10B981]">Mac Mini M2</span> & AI Agent tự động bú <span
+                    class="text-[#10B981]">$3,810/tháng</span> từ Affitor.</h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto">Không lý thuyết suông. Không website nặng nề. Nhập Email
+                bên dưới để tôi gửi toàn bộ <strong class="text-white">Source Code, Vercel Config, và Setup Guide 30
+                    Phút</strong> thẳng vào Inbox của bạn.</p>
         </div>
 
         <div class="max-w-md mx-auto">
             <!-- MailerLite Form Placeholder -->
             <form action="thank-you.html" method="GET" class="space-y-4">
                 <div>
-                    <input type="email" name="email" required placeholder="Nhập địa chỉ Email của bạn..." class="w-full bg-[#0D1117] border border-slate-600 text-white px-5 py-4 rounded-lg focus:outline-none focus:border-[#FF5733] focus:ring-1 focus:ring-[#FF5733] font-mono transition-all placeholder-slate-500 shadow-inner">
+                    <input type="email" name="email" required placeholder="Nhập địa chỉ Email của bạn..."
+                        class="w-full bg-[#0D1117] border border-slate-600 text-white px-5 py-4 rounded-lg focus:outline-none focus:border-[#FF5733] focus:ring-1 focus:ring-[#FF5733] font-mono transition-all placeholder-slate-500 shadow-inner">
                 </div>
-                <button type="submit" class="w-full bg-[#FF5733] hover:bg-[#E04B2A] text-white font-bold text-lg px-8 py-4 rounded-lg shadow-[0_0_20px_rgba(255,87,51,0.3)] transition-all transform hover:-translate-y-1">
+                <button type="submit"
+                    class="w-full bg-[#FF5733] hover:bg-[#E04B2A] text-white font-bold text-lg px-8 py-4 rounded-lg shadow-[0_0_20px_rgba(255,87,51,0.3)] transition-all transform hover:-translate-y-1">
                     GỬI SOURCE CODE CHO TÔI &rarr;
                 </button>
                 <p class="text-center text-xs text-slate-500 mt-4 flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <svg class="w-4 h-4 text-[#10B981]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
                     Bảo mật 100%. Không Spam. Hủy đăng ký bất cứ lúc nào.
                 </p>
             </form>
         </div>
-        
-        <div class="mt-12 pt-8 border-t border-slate-800 text-center flex flex-wrap justify-center gap-6 text-sm text-slate-500 font-mono">
+
+        <div
+            class="mt-12 pt-8 border-t border-slate-800 text-center flex flex-wrap justify-center gap-6 text-sm text-slate-500 font-mono">
             <span>[ Lobster-light ]</span>
             <span>[ Agent-right ]</span>
             <span>[ $0 Marginal Cost ]</span>
         </div>
-        
+
     </div>
 
-    <!-- Affitor Tracker & Google Sheets: Lead Signup -->
     <script type="module">
         import { loadAffitor } from 'https://esm.sh/@affitor/tracker';
 
@@ -65,10 +104,10 @@
             const submitBtn = form.querySelector('button[type="submit"]');
 
             form.addEventListener('submit', async (e) => {
-                e.preventDefault(); 
-                
+                e.preventDefault();
+
                 const emailInput = form.querySelector('input[name="email"]').value;
-                
+
                 // Trạng thái xử lý trên nút
                 submitBtn.innerHTML = 'HỆ THỐNG ĐANG GHI NHẬN... 🦞';
                 submitBtn.disabled = true;
@@ -79,8 +118,8 @@
                     const formData = new FormData();
                     formData.append('email', emailInput);
 
-                    const sheetTask = fetch(GOOGLE_SCRIPT_URL, { 
-                        method: 'POST', 
+                    const sheetTask = fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
                         body: formData,
                         mode: 'no-cors' // Quan trọng để bypass CORS của Google Apps Script
                     });
@@ -102,11 +141,12 @@
                 } catch (error) {
                     console.error('Lỗi hệ thống:', error);
                 } finally {
-                    // Cuối cùng luôn chuyển hướng sang trang thank-you.html có kèm param
-                    window.location.href = `thank-you.html?email=${encodeURIComponent(emailInput)}`;
+                    // Cuối cùng luôn chuyển hướng sang trang thank-you.html
+                    window.location.href = 'thank-you.html';
                 }
             });
         });
     </script>
 </body>
+
 </html>
