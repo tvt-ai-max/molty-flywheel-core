@@ -3,1196 +3,1050 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Deployment Plan — OpenClaw × Cowork × Claude Code × Mr. Tony</title>
+<title>🦞 Master Strategy A-Z | Molty Flywheel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#0d1117; --s1:#161b22; --s2:#21262d; --s3:#2d333b;
-  --bd:#30363d; --tx:#e6edf3; --dm:#8b949e;
-  --blue:#388bfd; --bdim:#1b2d4e;
-  --green:#3fb950; --gdim:#1a3326;
-  --yellow:#d29922; --ydim:#352a00;
-  --purple:#bc8cff; --pdim:#2d1f52;
-  --orange:#f0883e; --odim:#3d1f00;
-  --red:#f85149; --rdim:#3a0e0e;
-  --teal:#39c5cf; --tdim:#0d2d33;
-  --pink:#ff7eb6; --pkdim:#3a1028;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.6}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,#0d1117 0%,#0c1a2e 45%,#130d24 100%);border-bottom:1px solid var(--bd);padding:52px 44px 44px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-120px;right:-60px;width:500px;height:500px;background:radial-gradient(circle,rgba(56,139,253,.08) 0%,transparent 65%);pointer-events:none}
-.hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(56,139,253,.12);border:1px solid rgba(56,139,253,.3);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
-.hero h1{font-size:30px;font-weight:800;line-height:1.2;margin-bottom:10px;background:linear-gradient(135deg,#e6edf3 10%,#388bfd 55%,#bc8cff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{color:var(--dm);font-size:14px;max-width:720px;margin-bottom:28px}
-.kpi-strip{display:flex;flex-wrap:wrap;gap:14px}
-.kpi{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:14px 20px;text-align:center;min-width:100px}
-.kpi .n{font-size:22px;font-weight:700;display:block}
-.kpi .l{font-size:10px;color:var(--dm);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
-
-/* NAV */
-.nav{background:var(--s1);border-bottom:1px solid var(--bd);padding:0 44px;display:flex;overflow-x:auto;position:sticky;top:0;z-index:100}
-.nav a{color:var(--dm);text-decoration:none;padding:13px 15px;font-size:12px;font-weight:500;white-space:nowrap;border-bottom:2px solid transparent;transition:.2s}
-.nav a:hover{color:var(--tx);border-bottom-color:var(--blue)}
-
-/* LAYOUT */
-.main{max-width:1320px;margin:0 auto;padding:44px}
-section{margin-bottom:56px}
-h2{font-size:19px;font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:8px}
-h3{font-size:14px;font-weight:600;color:var(--blue);margin-bottom:10px}
-p{color:var(--dm);margin-bottom:8px;line-height:1.7}
-strong{color:var(--tx)}
-
-/* ROLE CARDS */
-.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0}
-.role-card{border-radius:14px;padding:22px;border:2px solid}
-.role-card.tony{background:linear-gradient(135deg,#1a0a00,#0d1117);border-color:var(--orange)}
-.role-card.cowork{background:linear-gradient(135deg,#1a0a28,#0d1117);border-color:var(--purple)}
-.role-card.code{background:linear-gradient(135deg,#001a2e,#0d1117);border-color:var(--blue)}
-.role-card.openclaw{background:linear-gradient(135deg,#001a10,#0d1117);border-color:var(--green)}
-.role-avatar{font-size:32px;margin-bottom:10px}
-.role-name{font-size:16px;font-weight:700;margin-bottom:4px}
-.role-card.tony .role-name{color:var(--orange)}
-.role-card.cowork .role-name{color:var(--purple)}
-.role-card.code .role-name{color:var(--blue)}
-.role-card.openclaw .role-name{color:var(--green)}
-.role-title{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--dm);margin-bottom:12px}
-.role-trait{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:var(--dm);margin-bottom:5px}
-.role-trait::before{content:'▹';flex-shrink:0}
-.role-budget-box{margin-top:14px;padding:10px 12px;border-radius:8px;text-align:center}
-.tony .role-budget-box{background:var(--odim);border:1px solid var(--orange)}
-.cowork .role-budget-box{background:var(--pdim);border:1px solid var(--purple)}
-.code .role-budget-box{background:var(--bdim);border:1px solid var(--blue)}
-.openclaw .role-budget-box{background:var(--gdim);border:1px solid var(--green)}
-.rb-num{font-size:20px;font-weight:700;display:block}
-.tony .rb-num{color:var(--orange)}
-.cowork .rb-num{color:var(--purple)}
-.code .rb-num{color:var(--blue)}
-.openclaw .rb-num{color:var(--green)}
-.rb-lbl{font-size:10px;color:var(--dm)}
-
-/* PHASE BLOCKS */
-.phase-block{background:var(--s1);border:1px solid var(--bd);border-radius:14px;margin-bottom:20px;overflow:hidden}
-.phase-header{padding:16px 22px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bd)}
-.ph-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
-.ph-info{flex:1}
-.ph-title{font-size:15px;font-weight:700;color:var(--tx)}
-.ph-sub{font-size:12px;color:var(--dm)}
-.ph-meta{display:flex;gap:8px;align-items:center}
-.ph-badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:4px}
-.phase-body{padding:20px 22px}
-
-/* TASK TABLE */
-.task-table{width:100%;border-collapse:collapse;font-size:13px}
-.task-table th{background:var(--s2);padding:9px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--dm);border-bottom:1px solid var(--bd)}
-.task-table td{padding:10px 12px;border-bottom:1px solid rgba(48,54,61,.5);vertical-align:top}
-.task-table tr:last-child td{border-bottom:none}
-.task-table tr:hover td{background:rgba(48,54,61,.3)}
-.task-table td:first-child{color:var(--tx);font-weight:500}
-
-/* ROLE BADGES */
-.rb{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap}
-.rb.tony{background:var(--odim);color:var(--orange);border:1px solid var(--orange)}
-.rb.cowork{background:var(--pdim);color:var(--purple);border:1px solid var(--purple)}
-.rb.code{background:var(--bdim);color:var(--blue);border:1px solid var(--blue)}
-.rb.openclaw{background:var(--gdim);color:var(--green);border:1px solid var(--green)}
-.rb.both{background:var(--tdim);color:var(--teal);border:1px solid var(--teal)}
-
-/* STATUS */
-.st{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px}
-.st.p0{background:var(--rdim);color:var(--red)}
-.st.p1{background:var(--odim);color:var(--orange)}
-.st.p2{background:var(--ydim);color:var(--yellow)}
-.st.auto{background:var(--gdim);color:var(--green)}
-.st.once{background:var(--bdim);color:var(--blue)}
-
-/* BUDGET TABLE */
-.budget-section{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0}
-.budget-card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:20px}
-.budget-card h3{margin-bottom:14px}
-.budget-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:13px}
-.budget-row:last-child{border-bottom:none;font-weight:700;color:var(--tx);padding-top:12px}
-.budget-row .item{color:var(--dm)}
-.budget-row .cost{font-family:monospace;font-weight:600}
-.cost.free{color:var(--green)}
-.cost.low{color:var(--yellow)}
-.cost.mid{color:var(--orange)}
-
-/* REVENUE PROJECTION */
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
-.rev-phase{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:20px;text-align:center}
-.rev-phase h4{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--dm);margin-bottom:14px}
-.rev-num{font-size:32px;font-weight:700;display:block;margin-bottom:4px}
-.rev-sub{font-size:12px;color:var(--dm);margin-bottom:12px}
-.rev-details{text-align:left}
-.rev-item{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid rgba(48,54,61,.3)}
-.rev-item:last-child{border-bottom:none}
-.rev-item .ri{color:var(--dm)}
-.rev-item .rv{font-family:monospace;font-weight:600}
-
-/* CASH FLOW */
-.cf-table{width:100%;border-collapse:collapse;font-size:12px}
-.cf-table th{background:var(--s2);padding:9px 12px;text-align:center;font-size:11px;color:var(--dm);border-bottom:2px solid var(--bd)}
-.cf-table th:first-child{text-align:left}
-.cf-table td{padding:9px 12px;border-bottom:1px solid rgba(48,54,61,.4);text-align:center;font-family:monospace}
-.cf-table td:first-child{text-align:left;color:var(--tx);font-family:inherit;font-size:12px}
-.cf-table tr:last-child td{border-bottom:none;font-weight:700}
-.cf-table .neg{color:var(--red)}
-.cf-table .pos{color:var(--green)}
-.cf-table .zero{color:var(--dm)}
-.cf-table .total-row td{background:var(--s2);font-weight:700}
-
-/* EFFICIENCY */
-.eff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
-.eff-card{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:16px}
-.eff-card h4{font-size:12px;color:var(--dm);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
-.eff-meter{height:6px;background:var(--s3);border-radius:3px;margin-bottom:8px;overflow:hidden}
-.eff-fill{height:100%;border-radius:3px}
-.eff-pct{font-size:22px;font-weight:700;margin-bottom:4px}
-.eff-note{font-size:11px;color:var(--dm)}
-
-/* TIMELINE GANTT */
-.gantt{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:24px;overflow-x:auto}
-.gantt-row{display:flex;align-items:center;gap:0;margin-bottom:8px;min-width:900px}
-.gantt-label{width:180px;flex-shrink:0;font-size:12px;color:var(--dm);padding-right:12px;text-align:right}
-.gantt-label strong{color:var(--tx);display:block;font-size:11px}
-.gantt-weeks{display:flex;flex:1;gap:2px}
-.gw{flex:1;height:28px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;opacity:.85;transition:.2s}
-.gw:hover{opacity:1}
-.gw.empty{background:var(--s2);opacity:.3}
-.gw.tony-c{background:var(--orange)}
-.gw.cowork-c{background:var(--purple)}
-.gw.code-c{background:var(--blue)}
-.gw.openclaw-c{background:var(--green)}
-.gw.all-c{background:linear-gradient(90deg,var(--purple),var(--blue));color:#fff}
-.gantt-header{display:flex;margin-bottom:12px;min-width:900px}
-.gantt-header .gh-label{width:180px;flex-shrink:0}
-.gantt-header .gh-weeks{display:flex;flex:1;gap:2px}
-.gh-week{flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600}
-
-/* RESPONSIBILITY MATRIX */
-.raci{width:100%;border-collapse:collapse;font-size:12px}
-.raci th{background:var(--s2);padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--dm);border-bottom:2px solid var(--bd);text-align:center}
-.raci th:first-child{text-align:left}
-.raci td{padding:9px 12px;border-bottom:1px solid rgba(48,54,61,.4);text-align:center;font-weight:700}
-.raci td:first-child{text-align:left;color:var(--tx);font-size:12px;font-weight:400}
-.raci .R{color:var(--red)}       /* Responsible */
-.raci .A{color:var(--orange)}    /* Accountable */
-.raci .C{color:var(--blue)}      /* Consulted */
-.raci .I{color:var(--dm)}        /* Informed */
-.raci .x{color:var(--s3)}
-
-/* KPI TARGETS */
-.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
-.kpi-card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:20px}
-.kpi-card h4{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--dm);margin-bottom:14px}
-.kpi-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:12px}
-.kpi-row:last-child{border-bottom:none}
-.kpi-row .km{color:var(--dm)}
-.kpi-row .kv{font-family:monospace;font-weight:700}
-
-/* ROI SUMMARY */
-.roi-banner{background:linear-gradient(135deg,var(--gdim),var(--tdim));border:1px solid var(--green);border-radius:14px;padding:28px;text-align:center;margin:24px 0}
-.roi-banner .big{font-size:52px;font-weight:800;color:var(--green);display:block;line-height:1}
-.roi-banner .sub{font-size:14px;color:var(--dm);margin-top:8px}
-.roi-numbers{display:flex;justify-content:center;gap:32px;margin-top:20px;flex-wrap:wrap}
-.roi-n{text-align:center}
-.roi-n .rn{font-size:24px;font-weight:700;display:block}
-.roi-n .rl{font-size:11px;color:var(--dm)}
-
-/* RISK */
-.risk-table{width:100%;border-collapse:collapse;font-size:12px}
-.risk-table th{background:var(--s2);padding:9px 12px;font-size:11px;text-transform:uppercase;color:var(--dm);border-bottom:1px solid var(--bd)}
-.risk-table td{padding:10px 12px;border-bottom:1px solid rgba(48,54,61,.4);vertical-align:top}
-.risk-table tr:last-child td{border-bottom:none}
-.risk-H{color:var(--red);font-weight:700}
-.risk-M{color:var(--yellow);font-weight:700}
-.risk-L{color:var(--green);font-weight:700}
-
-/* UTIL */
-.note{background:var(--ydim);border:1px solid var(--yellow);border-radius:8px;padding:12px 16px;font-size:12px;color:var(--dm);margin:12px 0}
-.note strong{color:var(--yellow)}
-.info{background:var(--bdim);border:1px solid var(--blue);border-radius:8px;padding:12px 16px;font-size:12px;color:var(--dm);margin:12px 0}
-.info strong{color:var(--blue)}
-.tag{display:inline-block;background:var(--s2);border:1px solid var(--bd);border-radius:4px;padding:2px 7px;font-size:11px;color:var(--dm);font-family:monospace;margin:2px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
-footer{background:var(--s1);border-top:1px solid var(--bd);padding:24px 44px;text-align:center;color:var(--dm);font-size:12px}
-@media(max-width:900px){.roles,.rev-grid,.kpi-grid,.eff-grid,.budget-section,.two,.three{grid-template-columns:1fr}.main{padding:20px}.hero{padding:28px 20px}.hero h1{font-size:22px}}
+  :root {
+    --lobster: #FF5733;
+    --indigo: #6366F1;
+    --gold: #D97706;
+    --emerald: #10B981;
+    --dark: #0F172A;
+    --mid: #1E293B;
+    --muted: #64748B;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: #F1F5F9; color: var(--dark); margin: 0; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  /* Sidebar */
+  #sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 260px; background: var(--dark); z-index: 100; overflow-y: auto; display: flex; flex-direction: column; }
+  #sidebar::-webkit-scrollbar { width: 4px; } #sidebar::-webkit-scrollbar-thumb { background: #334155; }
+  #main { margin-left: 260px; min-height: 100vh; }
+  .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; cursor: pointer; border-left: 3px solid transparent; color: #94A3B8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.2s; text-decoration: none; }
+  .nav-item:hover, .nav-item.active { background: rgba(255,87,51,0.1); border-left-color: var(--lobster); color: white; }
+  .nav-section-title { padding: 16px 20px 6px; font-size: 9px; font-weight: 900; letter-spacing: 0.15em; color: #475569; text-transform: uppercase; }
+  /* Sections */
+  .section { padding: 48px 48px; border-bottom: 1px solid #E2E8F0; scroll-margin-top: 0; }
+  .section-hero { background: var(--dark); color: white; padding: 60px 48px; }
+  /* Cards */
+  .card { background: white; border-radius: 20px; border: 1px solid #E2E8F0; padding: 28px; }
+  .card-dark { background: var(--mid); border-radius: 20px; padding: 28px; color: white; }
+  /* KPI bar at top */
+  #kpi-bar { position: sticky; top: 0; z-index: 90; background: white; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; gap: 0; overflow-x: auto; }
+  .kpi-item { padding: 12px 24px; border-right: 1px solid #E2E8F0; min-width: 160px; flex-shrink: 0; }
+  .kpi-label { font-size: 9px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .kpi-value { font-size: 20px; font-weight: 900; margin-top: 2px; }
+  /* Badges */
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+  /* Skill pills */
+  .skill-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 11px; font-weight: 700; background: #F1F5F9; border: 1px solid #E2E8F0; }
+  /* Timeline */
+  .timeline-item { position: relative; padding-left: 40px; padding-bottom: 32px; }
+  .timeline-item::before { content: ''; position: absolute; left: 9px; top: 24px; bottom: 0; width: 2px; background: #E2E8F0; }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-dot { position: absolute; left: 0; top: 4px; width: 20px; height: 20px; border-radius: 50%; background: var(--lobster); border: 3px solid white; box-shadow: 0 0 0 2px var(--lobster); display: flex; align-items: center; justify-content: center; }
+  /* Progress bar */
+  .progress-bar { height: 8px; border-radius: 999px; background: #E2E8F0; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 999px; transition: width 1s ease; }
+  /* Checklist */
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px; background: white; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 8px; }
+  .check-item input[type=checkbox] { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--lobster); flex-shrink: 0; }
+  .check-item input:checked + div { opacity: 0.5; text-decoration: line-through; }
+  /* Chart containers */
+  .chart-wrap { position: relative; width: 100%; height: 280px; }
+  /* Grid helpers */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+  @media (max-width: 900px) { #sidebar { display: none; } #main { margin-left: 0; } .g2,.g3,.g4 { grid-template-columns: 1fr; } .section { padding: 32px 20px; } }
+  /* Week table */
+  .week-row { display: grid; grid-template-columns: 80px 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid #E2E8F0; }
+  .week-row > div { padding: 12px 16px; font-size: 12px; }
+  .week-row:nth-child(even) { background: #F8FAFC; }
+  /* Lobster accent line */
+  .accent-line { width: 48px; height: 4px; background: var(--lobster); border-radius: 2px; margin-bottom: 16px; }
+  /* Terminal block */
+  .terminal { background: #0D1117; border-radius: 14px; padding: 20px 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #C9D1D9; line-height: 1.7; overflow-x: auto; }
+  .terminal .cmd { color: #79C0FF; }
+  .terminal .cmt { color: #8B949E; }
+  .terminal .ok { color: #56D364; }
+  .terminal .warn { color: #E3B341; }
+  /* Stat block */
+  .stat-block { text-align: center; padding: 20px; background: white; border-radius: 16px; border: 1px solid #E2E8F0; }
+  .stat-num { font-size: 32px; font-weight: 900; line-height: 1; }
+  .stat-sub { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px; }
+  /* Flow arrows */
+  .flow-arrow { text-align: center; font-size: 20px; color: var(--muted); padding: 4px 0; }
+  /* Sticky section nav */
+  .section-title { font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; }
+  .section-subtitle { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 640px; }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-chip">🎯 Master Deployment Plan · MoltyFlywheel.com · 2026</div>
-  <h1>4-Role Execution Plan<br>OpenClaw × Cowork × Claude Code × Mr. Tony</h1>
-  <p class="hero-sub">Kế hoạch triển khai thực tế với phân công nhiệm vụ rõ ràng từng vai trò, ngân sách chi tiết, dòng tiền 12 tuần, và mục tiêu doanh số $3,810 Net ROI/tháng. Mỗi đồng chi ra đều có ROI đo lường được.</p>
-  <div class="kpi-strip">
-    <div class="kpi"><span class="n" style="color:var(--orange)">1</span><span class="l">Con người</span></div>
-    <div class="kpi"><span class="n" style="color:var(--purple)">3</span><span class="l">AI Agents</span></div>
-    <div class="kpi"><span class="n" style="color:var(--green)">$71</span><span class="l">Budget/tháng</span></div>
-    <div class="kpi"><span class="n" style="color:var(--blue)">12</span><span class="l">Tuần triển khai</span></div>
-    <div class="kpi"><span class="n" style="color:var(--teal)">$3,810</span><span class="l">Target ROI/tháng</span></div>
-    <div class="kpi"><span class="n" style="color:var(--yellow)">5,267%</span><span class="l">ROI tháng 3</span></div>
-    <div class="kpi"><span class="n" style="color:var(--pink)">52</span><span class="l">AI Skills</span></div>
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div style="padding: 24px 20px 16px; border-bottom: 1px solid #1E293B;">
+    <div style="font-size: 28px; margin-bottom: 6px;">🦞</div>
+    <div style="font-size: 14px; font-weight: 900; color: white; text-transform: uppercase; letter-spacing: 0.05em;">Molty <span style="color: var(--lobster);">Master</span></div>
+    <div style="font-size: 10px; color: #475569; font-weight: 700; margin-top: 2px;">Chiến Lược A-Z Tổng Thể</div>
   </div>
-</div>
-
-<nav class="nav">
-  <a href="#roles">👥 Vai Trò</a>
-  <a href="#raci">📋 RACI</a>
-  <a href="#phases">🗓 Phases</a>
-  <a href="#gantt">📊 Gantt</a>
-  <a href="#budget">💵 Ngân Sách</a>
-  <a href="#cashflow">💰 Dòng Tiền</a>
-  <a href="#revenue">📈 Doanh Số</a>
-  <a href="#kpi">🎯 KPIs</a>
-  <a href="#efficiency">⚡ Hiệu Quả</a>
-  <a href="#risk">⚠️ Rủi Ro</a>
+  <div style="padding: 12px 0; flex: 1;">
+    <div class="nav-section-title">Tổng Quan</div>
+    <a href="#overview" class="nav-item active">🎯 <span>Tổng Quan Hệ Thống</span></a>
+    <a href="#kpi" class="nav-item">📊 <span>KPI Dashboard</span></a>
+    <div class="nav-section-title">Hạ Tầng</div>
+    <a href="#infra" class="nav-item">⚙️ <span>Hạ Tầng Kỹ Thuật</span></a>
+    <a href="#domain" class="nav-item">🌐 <span>Domain & Brand</span></a>
+    <div class="nav-section-title">Vận Hành</div>
+    <a href="#affiliate" class="nav-item">💰 <span>Affiliate & Skills</span></a>
+    <a href="#evolution" class="nav-item">🔄 <span>Self-Evolution Loop</span></a>
+    <div class="nav-section-title">Tăng Trưởng</div>
+    <a href="#content" class="nav-item">✍️ <span>Content 90 Ngày</span></a>
+    <a href="#weekly" class="nav-item">📅 <span>Action Plan Tuần</span></a>
+    <div class="nav-section-title">Kiểm Soát</div>
+    <a href="#checklist" class="nav-item">✅ <span>Master Checklist</span></a>
+    <a href="#risks" class="nav-item">⚠️ <span>Rủi Ro & Xử Lý</span></a>
+  </div>
+  <div style="padding: 16px 20px; border-top: 1px solid #1E293B;">
+    <div style="font-size: 9px; color: #334155; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">© 2026 Molty Core 🦞</div>
+  </div>
 </nav>
 
-<div class="main">
+<!-- MAIN -->
+<div id="main">
 
-<!-- ═══ ROLES ═══ -->
-<section id="roles">
-  <h2>👥 4 Vai Trò & Năng Lực</h2>
-  <p>Mỗi vai trò giải quyết đúng bài toán của mình. Không overlap, không lãng phí. <strong>Con người chỉ làm những việc AI không thể thay thế.</strong></p>
-
-  <div class="roles">
-
-    <div class="role-card tony">
-      <div class="role-avatar">👨‍💼</div>
-      <div class="role-name">Mr. Tony</div>
-      <div class="role-title">CEO · Strategic Oversight</div>
-      <div class="role-trait">Quyết định chiến lược & định hướng</div>
-      <div class="role-trait">Manual tasks yêu cầu human auth (CF, GitHub)</div>
-      <div class="role-trait">Review & approve content trước khi publish</div>
-      <div class="role-trait">Monitor Telegram dashboard hàng ngày</div>
-      <div class="role-trait">Affiliate network relationship management</div>
-      <div class="role-trait">Điều chỉnh khi kết quả lệch mục tiêu</div>
-      <div class="role-budget-box">
-        <span class="rb-num">2–3h</span>
-        <span class="rb-lbl">Thời gian/tuần (sau tuần 2)</span>
-      </div>
-    </div>
-
-    <div class="role-card cowork">
-      <div class="role-avatar">🧠</div>
-      <div class="role-name">Claude Cowork</div>
-      <div class="role-title">Chief Architect · Content Factory</div>
-      <div class="role-trait">Build toàn bộ website Astro (one-time)</div>
-      <div class="role-trait">Viết & tối ưu SKILL.md compact cho 52 skills</div>
-      <div class="role-trait">Tạo templates, frameworks, references</div>
-      <div class="role-trait">Phân tích KPI data → cập nhật skills</div>
-      <div class="role-trait">Tạo DOCX/PPTX/HTML reports</div>
-      <div class="role-trait">Strategy planning & self-evolution loop</div>
-      <div class="role-budget-box">
-        <span class="rb-num">On-demand</span>
-        <span class="rb-lbl">Khi Tony yêu cầu</span>
-      </div>
-    </div>
-
-    <div class="role-card code">
-      <div class="role-avatar">⌨️</div>
-      <div class="role-name">Claude Code</div>
-      <div class="role-title">Lead Developer · CLI Engineer</div>
-      <div class="role-trait">Build & deploy Astro website qua terminal</div>
-      <div class="role-trait">Git operations (commit, push, PR)</div>
-      <div class="role-trait">Debug TypeScript/Node errors</div>
-      <div class="role-trait">CF Workers & Tunnel configuration</div>
-      <div class="role-trait">npm scripts & GitHub Actions YAML</div>
-      <div class="role-trait">Run tests, verify builds, hotfixes</div>
-      <div class="role-budget-box">
-        <span class="rb-num">Sprint-based</span>
-        <span class="rb-lbl">Theo yêu cầu Cowork/Tony</span>
-      </div>
-    </div>
-
-    <div class="role-card openclaw">
-      <div class="role-avatar">🤖</div>
-      <div class="role-name">OpenClaw</div>
-      <div class="role-title">Autonomous Engine · 24/7 Operator</div>
-      <div class="role-trait">Chạy 52 skills tự động 24/7 (Mac Mini M2)</div>
-      <div class="role-trait">Free Ride Engine — $0 cho 38 skills</div>
-      <div class="role-trait">CRON: content, KPI, health checks</div>
-      <div class="role-trait">Telegram alerts & weekly reports</div>
-      <div class="role-trait">Batch blog generation hàng ngày</div>
-      <div class="role-trait">Self-improvement loop S6→S8→S1</div>
-      <div class="role-budget-box">
-        <span class="rb-num">$50/tháng</span>
-        <span class="rb-lbl">S4+S8 paid skills cap</span>
-      </div>
-    </div>
-
+<!-- KPI BAR -->
+<div id="kpi-bar">
+  <div class="kpi-item" style="padding-left: 32px;">
+    <div class="kpi-label">Mục Tiêu Net ROI</div>
+    <div class="kpi-value" style="color: var(--emerald);">$3,810<span style="font-size: 12px; color: var(--muted);">/tháng</span></div>
   </div>
-
-  <div class="info">
-    <strong>💡 Nguyên tắc phân công:</strong> Cowork = Tư duy phức tạp, tạo tài sản một lần. Claude Code = Thực thi kỹ thuật chính xác. OpenClaw = Vận hành tự động 24/7. Tony = Quyết định chiến lược &amp; việc cần human auth. <strong>Không vai trò nào làm việc của vai trò khác.</strong>
+  <div class="kpi-item">
+    <div class="kpi-label">Ngân Sách API</div>
+    <div class="kpi-value" style="color: var(--indigo);">$50<span style="font-size: 12px; color: var(--muted);">/tháng</span></div>
   </div>
-</section>
-
-<!-- ═══ RACI ═══ -->
-<section id="raci">
-  <h2>📋 Ma Trận RACI — Phân Công Nhiệm Vụ</h2>
-  <p><strong>R</strong> = Responsible (người làm) · <strong>A</strong> = Accountable (người chịu trách nhiệm) · <strong>C</strong> = Consulted (tư vấn) · <strong>I</strong> = Informed (được thông báo)</p>
-
-  <table class="raci">
-    <thead>
-      <tr>
-        <th style="width:35%">Nhiệm Vụ</th>
-        <th>👨‍💼 Tony</th>
-        <th>🧠 Cowork</th>
-        <th>⌨️ Code</th>
-        <th>🤖 OpenClaw</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td colspan="5" style="background:var(--s2);color:var(--dm);font-size:11px;padding:6px 12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600">🏗 Website Build</td></tr>
-      <tr><td>Thiết kế kiến trúc website</td><td class="A">A</td><td class="R">R</td><td class="C">C</td><td class="x">—</td></tr>
-      <tr><td>Code Astro components & pages</td><td class="I">I</td><td class="C">C</td><td class="R">R</td><td class="x">—</td></tr>
-      <tr><td>GitHub repo setup & Actions</td><td class="A">A</td><td class="C">C</td><td class="R">R</td><td class="x">—</td></tr>
-      <tr><td>Cloudflare DNS config</td><td class="R">R</td><td class="C">C</td><td class="C">C</td><td class="x">—</td></tr>
-      <tr><td>Cloudflare Tunnel setup</td><td class="R">R</td><td class="C">C</td><td class="C">C</td><td class="x">—</td></tr>
-      <tr><td>CF Workers (short links)</td><td class="A">A</td><td class="C">C</td><td class="R">R</td><td class="x">—</td></tr>
-
-      <tr><td colspan="5" style="background:var(--s2);color:var(--dm);font-size:11px;padding:6px 12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600">📝 Content & SEO</td></tr>
-      <tr><td>Viết SKILL_COMPACT.md (52 files)</td><td class="I">I</td><td class="R">R</td><td class="x">—</td><td class="x">—</td></tr>
-      <tr><td>Tạo blog/landing templates</td><td class="I">I</td><td class="R">R</td><td class="x">—</td><td class="x">—</td></tr>
-      <tr><td>Generate blog posts hàng ngày</td><td class="I">I</td><td class="x">—</td><td class="x">—</td><td class="R">R</td></tr>
-      <tr><td>Review & approve content</td><td class="R">R</td><td class="C">C</td><td class="x">—</td><td class="x">—</td></tr>
-      <tr><td>SEO audit & keyword research</td><td class="A">A</td><td class="R">R</td><td class="x">—</td><td class="C">C</td></tr>
-      <tr><td>Internal linking optimization</td><td class="I">I</td><td class="x">—</td><td class="x">—</td><td class="R">R</td></tr>
-
-      <tr><td colspan="5" style="background:var(--s2);color:var(--dm);font-size:11px;padding:6px 12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600">🤖 AI Skills & OpenClaw</td></tr>
-      <tr><td>Tạo openclaw.yaml cho 52 skills</td><td class="I">I</td><td class="R">R</td><td class="x">—</td><td class="x">—</td></tr>
-      <tr><td>Deploy skills lên OpenClaw</td><td class="A">A</td><td class="C">C</td><td class="C">C</td><td class="R">R</td></tr>
-      <tr><td>CRON automation setup</td><td class="A">A</td><td class="C">C</td><td class="R">R</td><td class="x">—</td></tr>
-      <tr><td>Free Ride routing optimization</td><td class="I">I</td><td class="R">R</td><td class="x">—</td><td class="C">C</td></tr>
-      <tr><td>PM2 process management</td><td class="I">I</td><td class="x">—</td><td class="x">—</td><td class="R">R</td></tr>
-
-      <tr><td colspan="5" style="background:var(--s2);color:var(--dm);font-size:11px;padding:6px 12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600">📊 Analytics & Optimization</td></tr>
-      <tr><td>Weekly KPI report generation</td><td class="I">I</td><td class="x">—</td><td class="x">—</td><td class="R">R</td></tr>
-      <tr><td>KPI analysis & skill improvement</td><td class="A">A</td><td class="R">R</td><td class="x">—</td><td class="C">C</td></tr>
-      <tr><td>A/B test design</td><td class="A">A</td><td class="R">R</td><td class="x">—</td><td class="C">C</td></tr>
-      <tr><td>Revenue attribution tracking</td><td class="A">A</td><td class="x">—</td><td class="x">—</td><td class="R">R</td></tr>
-      <tr><td>Affiliate program management</td><td class="R">R</td><td class="C">C</td><td class="x">—</td><td class="C">C</td></tr>
-
-      <tr><td colspan="5" style="background:var(--s2);color:var(--dm);font-size:11px;padding:6px 12px;text-transform:uppercase;letter-spacing:.04em;font-weight:600">🚀 Launch & Distribution</td></tr>
-      <tr><td>Product Hunt / Show HN launch</td><td class="R">R</td><td class="C">C</td><td class="x">—</td><td class="I">I</td></tr>
-      <tr><td>Social media posts</td><td class="A">A</td><td class="x">—</td><td class="x">—</td><td class="R">R</td></tr>
-      <tr><td>Email newsletter</td><td class="A">A</td><td class="C">C</td><td class="x">—</td><td class="R">R</td></tr>
-      <tr><td>Awesome lists PRs</td><td class="A">A</td><td class="C">C</td><td class="R">R</td><td class="x">—</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ═══ PHASES ═══ -->
-<section id="phases">
-  <h2>🗓 5 Phases Chi Tiết — Nhiệm Vụ, Vai Trò, Thời Gian</h2>
-
-  <!-- PHASE 1 -->
-  <div class="phase-block">
-    <div class="phase-header" style="background:linear-gradient(90deg,rgba(56,139,253,.08),transparent)">
-      <div class="ph-num" style="background:var(--bdim);color:var(--blue);border:2px solid var(--blue)">P1</div>
-      <div class="ph-info">
-        <div class="ph-title">FOUNDATION — Infrastructure & Codebase</div>
-        <div class="ph-sub">Tuần 1–2 · Ngày 1–14 · Tất cả AI + Tony setup</div>
-      </div>
-      <div class="ph-meta">
-        <span class="ph-badge" style="background:var(--bdim);color:var(--blue)">⏱ 14 ngày</span>
-        <span class="ph-badge" style="background:var(--gdim);color:var(--green)">💰 $12 setup</span>
-        <span class="ph-badge" style="background:var(--rdim);color:var(--red)">🎯 P0 Critical</span>
-      </div>
-    </div>
-    <div class="phase-body">
-      <table class="task-table">
-        <thead><tr><th>Nhiệm vụ</th><th>Vai trò</th><th>Thời gian</th><th>Output</th><th>Ưu tiên</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Build toàn bộ Astro website (52 pages)</td>
-            <td><span class="rb cowork">🧠 Cowork</span> <span class="rb code">⌨️ Code</span></td>
-            <td>1–2 ngày</td>
-            <td>moltyflywheel.com live</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Viết 52× SKILL_COMPACT.md (tối giản từ 180→40 lines)</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>4–6 giờ</td>
-            <td>73% token reduction</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>GitHub repo setup + Actions CI/CD</td>
-            <td><span class="rb code">⌨️ Code</span></td>
-            <td>1 giờ</td>
-            <td>Auto-deploy on push</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Cloudflare DNS: nameservers + A records + MX</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>20 phút</td>
-            <td>DNS propagated</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Cloudflare Tunnel: api.moltyflywheel.com → :18789</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>15 phút</td>
-            <td>Gateway public</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>CF Workers: go.moltyflywheel.com short links</td>
-            <td><span class="rb code">⌨️ Code</span></td>
-            <td>30 phút</td>
-            <td>UTM tracking active</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Tạo shared_context.json (brand + programs data)</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>1 giờ</td>
-            <td>−200 tokens/skill call</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>ConvertKit + Plausible setup</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>30 phút</td>
-            <td>Analytics + email live</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-          <tr>
-            <td>PM2 + OpenClaw health check (S0 skills)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Auto</td>
-            <td>Gateway 24/7 uptime</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Google Search Console verify + sitemap submit</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>10 phút</td>
-            <td>Indexing started</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="note" style="margin-top:12px"><strong>📌 Tony chỉ cần:</strong> ~1.5 giờ tổng trong Phase 1 — đăng nhập Cloudflare, switch nameservers, run 2 terminal commands cho CF Tunnel. Mọi việc còn lại AI lo hết.</div>
+  <div class="kpi-item">
+    <div class="kpi-label">Traffic Mục Tiêu</div>
+    <div class="kpi-value" style="color: var(--gold);">10K<span style="font-size: 12px; color: var(--muted);"> clicks</span></div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-label">Affiliate Skills</div>
+    <div class="kpi-value" style="color: var(--lobster);">45<span style="font-size: 12px; color: var(--muted);"> skills</span></div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-label">Hạ Tầng</div>
+    <div class="kpi-value" style="font-size: 14px; color: #10B981;">Mac Mini M2</div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-label">Chi Phí Biên</div>
+    <div class="kpi-value" style="color: var(--emerald);">$0<span style="font-size: 12px; color: var(--muted);"> target</span></div>
+  </div>
+  <div class="kpi-item">
+    <div class="kpi-label">Trạng Thái</div>
+    <div style="margin-top: 4px; display: flex; align-items: center; gap: 6px;">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block; animation: pulse 2s infinite;"></span>
+      <span style="font-size: 12px; font-weight: 800; color: #10B981;">SYSTEM ONLINE</span>
     </div>
   </div>
-
-  <!-- PHASE 2 -->
-  <div class="phase-block">
-    <div class="phase-header" style="background:linear-gradient(90deg,rgba(188,140,255,.06),transparent)">
-      <div class="ph-num" style="background:var(--pdim);color:var(--purple);border:2px solid var(--purple)">P2</div>
-      <div class="ph-info">
-        <div class="ph-title">CONTENT ENGINE — Template Library + First 15 Posts</div>
-        <div class="ph-sub">Tuần 2–3 · Ngày 7–21 · Cowork + OpenClaw takes over</div>
-      </div>
-      <div class="ph-meta">
-        <span class="ph-badge" style="background:var(--pdim);color:var(--purple)">⏱ 14 ngày</span>
-        <span class="ph-badge" style="background:var(--gdim);color:var(--green)">💰 $0 thêm</span>
-        <span class="ph-badge" style="background:var(--odim);color:var(--orange)">🎯 P1 High</span>
-      </div>
-    </div>
-    <div class="phase-body">
-      <table class="task-table">
-        <thead><tr><th>Nhiệm vụ</th><th>Vai trò</th><th>Thời gian</th><th>Output</th><th>Ưu tiên</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Tạo blog-master-template.md với 8 placeholder variables</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>2 giờ</td>
-            <td>OpenClaw fills → 800 tokens/post</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Tạo landing-page-template.html + grand-slam-offer-framework</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>3 giờ</td>
-            <td>S4 fills → 1,200 tokens/page</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Tạo seo-keyword-clusters.json (6 niches × 20 keywords)</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>2 giờ</td>
-            <td>Loại bỏ web_search overhead</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-          <tr>
-            <td>Generate 3 Hub pages (affiliate-blog-builder S3)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>30 phút</td>
-            <td>3 hub articles live</td>
-            <td><span class="st p0">P0</span></td>
-          </tr>
-          <tr>
-            <td>Generate 12 Spoke posts (CRON daily)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Auto/daily</td>
-            <td>12 posts → SEO index</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Review &amp; approve 15 bài đầu</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>3–4 giờ total</td>
-            <td>Quality gate passed</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-          <tr>
-            <td>Affiliate programs research (affiliate-program-search S1)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Auto</td>
-            <td>Top 20 programs list</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Email automation sequence (5 emails × 5 ngày)</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>2 giờ</td>
-            <td>ConvertKit sequence live</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-          <tr>
-            <td>Lead magnet PDF "Flywheel Complete Guide"</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>1 giờ</td>
-            <td>Email capture magnet</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- PHASE 3 -->
-  <div class="phase-block">
-    <div class="phase-header" style="background:linear-gradient(90deg,rgba(63,185,80,.06),transparent)">
-      <div class="ph-num" style="background:var(--gdim);color:var(--green);border:2px solid var(--green)">P3</div>
-      <div class="ph-info">
-        <div class="ph-title">ACTIVATION — Flywheel Goes Live + First Revenue</div>
-        <div class="ph-sub">Tuần 3–5 · Ngày 15–35 · OpenClaw runs autonomously</div>
-      </div>
-      <div class="ph-meta">
-        <span class="ph-badge" style="background:var(--gdim);color:var(--green)">⏱ 21 ngày</span>
-        <span class="ph-badge" style="background:var(--ydim);color:var(--yellow)">💰 Target $722</span>
-        <span class="ph-badge" style="background:var(--gdim);color:var(--green)">🎯 Revenue Start</span>
-      </div>
-    </div>
-    <div class="phase-body">
-      <table class="task-table">
-        <thead><tr><th>Nhiệm vụ</th><th>Vai trò</th><th>Tần suất</th><th>Output</th><th>Loại</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>CRON: auto-publish 1 blog/ngày (S3)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>9am daily</td>
-            <td>30 bài/tháng → SEO traffic</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>CRON: Social posts TikTok/Twitter (S2, S5)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>10am daily</td>
-            <td>Social traffic + brand</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Grand Slam Offer pages per top program (S4)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>2×/tuần</td>
-            <td>Landing pages → conversions</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Launch: Show HN + Reddit r/ClaudeAI</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>Ngày 21</td>
-            <td>10K–30K traffic spike</td>
-            <td><span class="st once">ONE-TIME</span></td>
-          </tr>
-          <tr>
-            <td>Launch: Product Hunt</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>Ngày 23</td>
-            <td>Upvotes + backlinks</td>
-            <td><span class="st once">ONE-TIME</span></td>
-          </tr>
-          <tr>
-            <td>Weekly KPI report + Telegram alert</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Thứ Hai 8am</td>
-            <td>Revenue/clicks/conversion data</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Review KPI + điều chỉnh strategy</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>1×/tuần</td>
-            <td>Direction decisions</td>
-            <td><span class="st p1">P1</span></td>
-          </tr>
-          <tr>
-            <td>Awesome Lists GitHub PRs (10 repos)</td>
-            <td><span class="rb code">⌨️ Code</span></td>
-            <td>Tuần 4</td>
-            <td>Permanent backlinks + discovery</td>
-            <td><span class="st once">ONE-TIME</span></td>
-          </tr>
-          <tr>
-            <td>Conversion tracking setup (UTM + S6)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Continuous</td>
-            <td>Attribution data per skill</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- PHASE 4 -->
-  <div class="phase-block">
-    <div class="phase-header" style="background:linear-gradient(90deg,rgba(210,153,34,.06),transparent)">
-      <div class="ph-num" style="background:var(--ydim);color:var(--yellow);border:2px solid var(--yellow)">P4</div>
-      <div class="ph-info">
-        <div class="ph-title">SCALE — Data-Driven Optimization + Skills Iteration</div>
-        <div class="ph-sub">Tuần 5–8 · Ngày 35–56 · Self-improvement loop active</div>
-      </div>
-      <div class="ph-meta">
-        <span class="ph-badge" style="background:var(--ydim);color:var(--yellow)">⏱ 28 ngày</span>
-        <span class="ph-badge" style="background:var(--ydim);color:var(--yellow)">💰 Target $1,500</span>
-        <span class="ph-badge" style="background:var(--bdim);color:var(--blue)">🎯 Compound Growth</span>
-      </div>
-    </div>
-    <div class="phase-body">
-      <table class="task-table">
-        <thead><tr><th>Nhiệm vụ</th><th>Vai trò</th><th>Tần suất</th><th>Output</th><th>Loại</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Self-improver: update underperforming SKILL.md (S8)</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>1×/tuần</td>
-            <td>Better conversion rates</td>
-            <td><span class="st once">WEEKLY</span></td>
-          </tr>
-          <tr>
-            <td>A/B test landing pages (ab-test-generator S6)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Auto</td>
-            <td>Winning variants data</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Content decay detection + refresh (content-decay-detector)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Weekly</td>
-            <td>Refreshed pages → rankings</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Expand sang niche mới (monopoly-niche-finder S1)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>2×/tháng</td>
-            <td>New revenue streams</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Phân tích KPI weekly → cập nhật strategy</td>
-            <td><span class="rb cowork">🧠 Cowork</span> <span class="rb tony">👨‍💼 Tony</span></td>
-            <td>1×/tuần</td>
-            <td>Optimized flywheel</td>
-            <td><span class="st once">WEEKLY</span></td>
-          </tr>
-          <tr>
-            <td>Email newsletter "Flywheel Digest" (S7)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Thứ Năm weekly</td>
-            <td>Subscriber retention + clicks</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-          <tr>
-            <td>Proprietary data generation (S7)</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>Monthly</td>
-            <td>Unique content moat</td>
-            <td><span class="st auto">AUTO</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- PHASE 5 -->
-  <div class="phase-block">
-    <div class="phase-header" style="background:linear-gradient(90deg,rgba(255,126,182,.05),transparent)">
-      <div class="ph-num" style="background:var(--pkdim);color:var(--pink);border:2px solid var(--pink)">P5</div>
-      <div class="ph-info">
-        <div class="ph-title">FLYWHEEL — Full Automation + $3,810 Target</div>
-        <div class="ph-sub">Tuần 9–12 · Ngày 57–84 · OpenClaw runs the business</div>
-      </div>
-      <div class="ph-meta">
-        <span class="ph-badge" style="background:var(--pkdim);color:var(--pink)">⏱ 28 ngày</span>
-        <span class="ph-badge" style="background:var(--gdim);color:var(--green)">💰 $3,810 target</span>
-        <span class="ph-badge" style="background:var(--gdim);color:var(--green)">🎯 Full Autonomous</span>
-      </div>
-    </div>
-    <div class="phase-body">
-      <table class="task-table">
-        <thead><tr><th>Nhiệm vụ</th><th>Vai trò</th><th>Tần suất</th><th>Output</th><th>Loại</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Full flywheel S1→S8 runs automatically</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span></td>
-            <td>24/7</td>
-            <td>Content + offers + tracking</td>
-            <td><span class="st auto">AUTONOMOUS</span></td>
-          </tr>
-          <tr>
-            <td>Tony oversight: 2h/tuần dashboard review</td>
-            <td><span class="rb tony">👨‍💼 Tony</span></td>
-            <td>2h/tuần</td>
-            <td>Direction + major decisions</td>
-            <td><span class="st p2">P2</span></td>
-          </tr>
-          <tr>
-            <td>Expansion: new niches, new affiliate programs</td>
-            <td><span class="rb openclaw">🤖 OpenClaw</span> <span class="rb cowork">🧠 Cowork</span></td>
-            <td>Monthly</td>
-            <td>Revenue diversification</td>
-            <td><span class="st once">MONTHLY</span></td>
-          </tr>
-          <tr>
-            <td>Skills v3+ iteration từ 4 tuần data</td>
-            <td><span class="rb cowork">🧠 Cowork</span></td>
-            <td>Monthly</td>
-            <td>Compound improvement</td>
-            <td><span class="st once">MONTHLY</span></td>
-          </tr>
-          <tr>
-            <td>MoltyFlywheel Affiliate Program launch</td>
-            <td><span class="rb tony">👨‍💼 Tony</span> <span class="rb code">⌨️ Code</span></td>
-            <td>Tuần 10</td>
-            <td>Revenue sharing channel</td>
-            <td><span class="st once">ONE-TIME</span></td>
-          </tr>
-          <tr>
-            <td>Monthly revenue report + strategy adjustment</td>
-            <td><span class="rb cowork">🧠 Cowork</span> <span class="rb tony">👨‍💼 Tony</span></td>
-            <td>Monthly</td>
-            <td>Next month targets</td>
-            <td><span class="st once">MONTHLY</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ GANTT ═══ -->
-<section id="gantt">
-  <h2>📊 Gantt Chart — 12 Tuần Timeline</h2>
-  <div class="gantt">
-    <div class="gantt-header">
-      <div class="gantt-header .gh-label" style="width:180px;flex-shrink:0"></div>
-      <div class="gh-weeks" style="display:flex;flex:1;gap:2px">
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W1</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W2</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W3</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W4</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W5</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W6</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W7</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W8</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W9</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W10</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W11</div>
-        <div class="gh-week" style="flex:1;text-align:center;font-size:10px;color:var(--dm);font-weight:600">W12</div>
-      </div>
-    </div>
-
-    <!-- Row template helper -->
-    <style>
-    .gr{display:flex;align-items:center;gap:0;margin-bottom:6px;min-width:900px}
-    .gl{width:180px;flex-shrink:0;font-size:11px;color:var(--dm);padding-right:10px;text-align:right;line-height:1.3}
-    .gl b{color:var(--tx);display:block}
-    .gbs{display:flex;flex:1;gap:2px}
-    .gb{flex:1;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:rgba(255,255,255,.9)}
-    .gb.e{background:var(--s2);opacity:.2}
-    .gb.t{background:var(--orange)}
-    .gb.c{background:var(--purple)}
-    .gb.k{background:var(--blue)}
-    .gb.o{background:var(--green)}
-    .gb.a{background:linear-gradient(90deg,var(--purple),var(--blue))}
-    </style>
-
-    <div class="gr"><div class="gl"><b>🧠 Cowork</b>Website Build</div><div class="gbs"><div class="gb c">BUILD</div><div class="gb c">SKILL</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>🧠 Cowork</b>Templates & Frameworks</div><div class="gbs"><div class="gb e"></div><div class="gb c">TPL</div><div class="gb c">TPL</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>🧠 Cowork</b>Weekly KPI → Skill Update</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb c">KPI</div><div class="gb c">KPI</div><div class="gb c">KPI</div><div class="gb c">KPI</div><div class="gb c">KPI</div><div class="gb c">KPI</div><div class="gb c">KPI</div><div class="gb c">KPI</div></div></div>
-
-    <div class="gr"><div class="gl"><b>⌨️ Code</b>Website Deploy</div><div class="gbs"><div class="gb k">DEV</div><div class="gb k">DEV</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>⌨️ Code</b>CF Workers + Awesome PRs</div><div class="gbs"><div class="gb e"></div><div class="gb k">CF</div><div class="gb e"></div><div class="gb k">PRs</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb k">AFF</div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>👨‍💼 Tony</b>DNS + Tunnel Setup</div><div class="gbs"><div class="gb t">DNS</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>👨‍💼 Tony</b>Content Review</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb t">REV</div><div class="gb t">REV</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>👨‍💼 Tony</b>Launch (HN+PH+Reddit)</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb t">LCH</div><div class="gb t">LCH</div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div></div></div>
-
-    <div class="gr"><div class="gl"><b>👨‍💼 Tony</b>Weekly Dashboard Review</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb t">2h</div><div class="gb t">2h</div><div class="gb t">2h</div><div class="gb t">2h</div><div class="gb t">2h</div><div class="gb t">2h</div><div class="gb t">2h</div><div class="gb t">2h</div></div></div>
-
-    <div class="gr"><div class="gl"><b>🤖 OpenClaw</b>Blog Auto-Publish</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div><div class="gb o">BLG</div></div></div>
-
-    <div class="gr"><div class="gl"><b>🤖 OpenClaw</b>Social + Offers (S2/S4)</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div><div class="gb o">S2/4</div></div></div>
-
-    <div class="gr"><div class="gl"><b>🤖 OpenClaw</b>KPI Reports + Telegram</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div><div class="gb o">KPI</div></div></div>
-
-    <div class="gr"><div class="gl"><b>🤖 OpenClaw</b>Self-Improve Loop (S8)</div><div class="gbs"><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb e"></div><div class="gb o">S8</div><div class="gb o">S8</div><div class="gb o">S8</div><div class="gb o">S8</div><div class="gb o">S8</div><div class="gb o">S8</div><div class="gb o">S8</div></div></div>
-
-    <!-- Legend -->
-    <div style="display:flex;gap:14px;margin-top:16px;flex-wrap:wrap;font-size:11px">
-      <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;background:var(--purple);border-radius:3px;display:inline-block"></span> Claude Cowork</span>
-      <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;background:var(--blue);border-radius:3px;display:inline-block"></span> Claude Code</span>
-      <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;background:var(--orange);border-radius:3px;display:inline-block"></span> Mr. Tony</span>
-      <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;background:var(--green);border-radius:3px;display:inline-block"></span> OpenClaw (Autonomous)</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ BUDGET ═══ -->
-<section id="budget">
-  <h2>💵 Ngân Sách Chi Tiết</h2>
-
-  <div class="budget-section">
-    <div class="budget-card">
-      <h3>🔧 Chi Phí Hạ Tầng / Tháng</h3>
-      <div class="budget-row"><span class="item">Domain moltyflywheel.com (năm)</span><span class="cost low">$1/tháng</span></div>
-      <div class="budget-row"><span class="item">Cloudflare (Free Plan)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item">GitHub Pages (Free)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item">CF Workers (100K req/ngày free)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item">CF Tunnel (Free)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item">ConvertKit Free (≤1K subs)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item">Plausible Analytics (self-host)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item">Mac Mini M2 (đã có)</span><span class="cost free">$0</span></div>
-      <div class="budget-row"><span class="item"><strong>Subtotal Infra</strong></span><span class="cost free">$1/tháng</span></div>
-    </div>
-
-    <div class="budget-card">
-      <h3>🤖 Chi Phí AI / Tháng</h3>
-      <div class="budget-row"><span class="item">OpenClaw S1/S2/S3/S5/S6/S7 (38 skills)</span><span class="cost free">$0 (Free Ride)</span></div>
-      <div class="budget-row"><span class="item">OpenClaw S4 (8 skills, Claude 3.5)</span><span class="cost low">~$8/tháng</span></div>
-      <div class="budget-row"><span class="item">OpenClaw S8 (6 skills, Claude 3.5)</span><span class="cost low">~$4/tháng</span></div>
-      <div class="budget-row"><span class="item">Claude Cowork (weekly sessions)</span><span class="cost low">~$15/tháng</span></div>
-      <div class="budget-row"><span class="item">Claude Code (sprint-based)</span><span class="cost low">~$10/tháng</span></div>
-      <div class="budget-row"><span class="item">Buffer / unexpected spikes</span><span class="cost low">~$13/tháng</span></div>
-      <div class="budget-row"><span class="item"><strong>Subtotal AI</strong></span><span class="cost low">$50/tháng</span></div>
-    </div>
-
-    <div class="budget-card" style="grid-column:1/-1;background:linear-gradient(135deg,var(--gdim),var(--s1))">
-      <h3 style="color:var(--green)">💰 Tổng Ngân Sách & ROI Projection</h3>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px">
-        <div style="text-align:center;padding:14px;background:var(--s2);border-radius:8px;border:1px solid var(--bd)">
-          <span style="font-size:22px;font-weight:700;color:var(--dm);display:block">$51</span>
-          <span style="font-size:11px;color:var(--dm)">Total/tháng</span>
-        </div>
-        <div style="text-align:center;padding:14px;background:var(--s2);border-radius:8px;border:1px solid var(--yellow)">
-          <span style="font-size:22px;font-weight:700;color:var(--yellow);display:block">$722</span>
-          <span style="font-size:11px;color:var(--dm)">Revenue tháng 2</span>
-        </div>
-        <div style="text-align:center;padding:14px;background:var(--s2);border-radius:8px;border:1px solid var(--orange)">
-          <span style="font-size:22px;font-weight:700;color:var(--orange);display:block">1,314%</span>
-          <span style="font-size:11px;color:var(--dm)">ROI tháng 2</span>
-        </div>
-        <div style="text-align:center;padding:14px;background:var(--gdim);border-radius:8px;border:1px solid var(--green)">
-          <span style="font-size:22px;font-weight:700;color:var(--green);display:block">5,267%</span>
-          <span style="font-size:11px;color:var(--dm)">ROI tháng 3</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CASH FLOW ═══ -->
-<section id="cashflow">
-  <h2>💰 Dòng Tiền 12 Tuần (Weekly)</h2>
-  <p>Dựa trên Free Ride Engine ($0 cho 38 skills) + S4/S8 paid cap $50/tháng. Revenue từ affiliate commissions với avg 20% recurring commission, avg order $97.</p>
-
-  <table class="cf-table">
-    <thead>
-      <tr>
-        <th>Tuần</th>
-        <th>Phase</th>
-        <th>Chi phí</th>
-        <th>Revenue</th>
-        <th>Conversions</th>
-        <th>Traffic (UV)</th>
-        <th>Net dòng tiền</th>
-        <th>Cộng dồn</th>
-        <th>Focus</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>W1</td><td>Foundation</td><td class="neg">-$13</td><td class="zero">$0</td><td class="zero">0</td><td class="zero">~200</td><td class="neg">-$13</td><td class="neg">-$13</td><td style="color:var(--dm);text-align:left">Build website + DNS setup</td></tr>
-      <tr><td>W2</td><td>Foundation</td><td class="neg">-$13</td><td class="zero">$0</td><td class="zero">0</td><td class="zero">~500</td><td class="neg">-$13</td><td class="neg">-$26</td><td style="color:var(--dm);text-align:left">Templates + 15 blog posts</td></tr>
-      <tr><td>W3</td><td>Activation</td><td class="neg">-$13</td><td class="zero">$0</td><td class="zero">0–2</td><td class="zero">~2,000</td><td class="neg">-$13</td><td class="neg">-$39</td><td style="color:var(--dm);text-align:left">Show HN launch day</td></tr>
-      <tr><td>W4</td><td>Activation</td><td class="neg">-$13</td><td class="pos">$97</td><td class="pos">1–3</td><td class="zero">~3,500</td><td class="pos">+$84</td><td class="pos">+$45</td><td style="color:var(--dm);text-align:left">Product Hunt + first sales</td></tr>
-      <tr><td>W5</td><td>Scale</td><td class="neg">-$13</td><td class="pos">$194</td><td class="pos">2–5</td><td class="zero">~5,000</td><td class="pos">+$181</td><td class="pos">+$226</td><td style="color:var(--dm);text-align:left">SEO traffic kicking in</td></tr>
-      <tr><td>W6</td><td>Scale</td><td class="neg">-$13</td><td class="pos">$291</td><td class="pos">3–7</td><td class="zero">~6,500</td><td class="pos">+$278</td><td class="pos">+$504</td><td style="color:var(--dm);text-align:left">Landing pages converting</td></tr>
-      <tr><td>W7</td><td>Scale</td><td class="neg">-$13</td><td class="pos">$388</td><td class="pos">4–8</td><td class="zero">~8,000</td><td class="pos">+$375</td><td class="pos">+$879</td><td style="color:var(--dm);text-align:left">Email list 500+ subs</td></tr>
-      <tr><td>W8</td><td>Scale</td><td class="neg">-$13</td><td class="pos">$550</td><td class="pos">5–10</td><td class="zero">~9,500</td><td class="pos">+$537</td><td class="pos">+$1,416</td><td style="color:var(--dm);text-align:left">Skills v2 deployed</td></tr>
-      <tr><td>W9</td><td>Flywheel</td><td class="neg">-$13</td><td class="pos">$775</td><td class="pos">8–15</td><td class="zero">~12,000</td><td class="pos">+$762</td><td class="pos">+$2,178</td><td style="color:var(--dm);text-align:left">Compound SEO traffic</td></tr>
-      <tr><td>W10</td><td>Flywheel</td><td class="neg">-$13</td><td class="pos">$970</td><td class="pos">10–18</td><td class="zero">~14,000</td><td class="pos">+$957</td><td class="pos">+$3,135</td><td style="color:var(--dm);text-align:left">Affiliate program launch</td></tr>
-      <tr><td>W11</td><td>Flywheel</td><td class="neg">-$13</td><td class="pos">$1,165</td><td class="pos">12–20</td><td class="zero">~16,500</td><td class="pos">+$1,152</td><td class="pos">+$4,287</td><td style="color:var(--dm);text-align:left">Skills v3 + new niches</td></tr>
-      <tr><td>W12</td><td>Flywheel</td><td class="neg">-$13</td><td class="pos">$1,455</td><td class="pos">15–25</td><td class="zero">~20,000</td><td class="pos">+$1,442</td><td class="pos">+$5,729</td><td style="color:var(--dm);text-align:left">Full flywheel autonomous</td></tr>
-      <tr class="total-row">
-        <td><strong>TOTAL</strong></td>
-        <td>12 tuần</td>
-        <td class="neg"><strong>-$156</strong></td>
-        <td class="pos"><strong>$5,885</strong></td>
-        <td class="pos"><strong>60–118</strong></td>
-        <td class="pos"><strong>~97,700</strong></td>
-        <td class="pos"><strong>+$5,729</strong></td>
-        <td class="pos"><strong>+$5,729</strong></td>
-        <td style="color:var(--green);text-align:left;font-weight:700">3,675% ROI tổng</td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="note" style="margin-top:12px"><strong>📌 Lưu ý:</strong> Revenue dựa trên avg affiliate commission $19.4/conversion (20% × $97 avg order). Tuần 4 breakeven. Từ tuần 5 trở đi dòng tiền dương hoàn toàn. Recurring commissions từ SaaS products tích lũy mỗi tháng.</div>
-</section>
-
-<!-- ═══ REVENUE ═══ -->
-<section id="revenue">
-  <h2>📈 Mục Tiêu Doanh Số — 3 Giai Đoạn</h2>
-
-  <div class="rev-grid">
-    <div class="rev-phase" style="border-color:var(--blue)">
-      <h4>📐 Tháng 1 (W1–W4)<br>Foundation</h4>
-      <span class="rev-num" style="color:var(--blue)">$97</span>
-      <p class="rev-sub">First conversion<br>Break-even cuối tháng</p>
-      <div class="rev-details">
-        <div class="rev-item"><span class="ri">Organic traffic</span><span class="rv" style="color:var(--dm)">~500/ngày</span></div>
-        <div class="rev-item"><span class="ri">Email subscribers</span><span class="rv" style="color:var(--dm)">~150</span></div>
-        <div class="rev-item"><span class="ri">Blog posts live</span><span class="rv" style="color:var(--blue)">15 posts</span></div>
-        <div class="rev-item"><span class="ri">Affiliate conversions</span><span class="rv" style="color:var(--blue)">1–5</span></div>
-        <div class="rev-item"><span class="ri">Landing pages</span><span class="rv" style="color:var(--blue)">8 pages</span></div>
-        <div class="rev-item"><span class="ri">Net ROI</span><span class="rv" style="color:var(--yellow)">-$59 → $45</span></div>
-      </div>
-    </div>
-
-    <div class="rev-phase" style="border-color:var(--yellow)">
-      <h4>⚙️ Tháng 2 (W5–W8)<br>Scale</h4>
-      <span class="rev-num" style="color:var(--yellow)">$722</span>
-      <p class="rev-sub">Net ROI/tháng<br>Target: 40 conversions</p>
-      <div class="rev-details">
-        <div class="rev-item"><span class="ri">Organic traffic</span><span class="rv" style="color:var(--yellow)">~2,500/ngày</span></div>
-        <div class="rev-item"><span class="ri">Email subscribers</span><span class="rv" style="color:var(--yellow)">~500</span></div>
-        <div class="rev-item"><span class="ri">Blog posts live</span><span class="rv" style="color:var(--yellow)">45 posts</span></div>
-        <div class="rev-item"><span class="ri">Affiliate conversions</span><span class="rv" style="color:var(--yellow)">24–40/tháng</span></div>
-        <div class="rev-item"><span class="ri">Landing pages</span><span class="rv" style="color:var(--yellow)">20 pages</span></div>
-        <div class="rev-item"><span class="ri">Skills iteration</span><span class="rv" style="color:var(--yellow)">v2 deployed</span></div>
-      </div>
-    </div>
-
-    <div class="rev-phase" style="border-color:var(--green)">
-      <h4>🌀 Tháng 3 (W9–W12)<br>Flywheel</h4>
-      <span class="rev-num" style="color:var(--green)">$3,810</span>
-      <p class="rev-sub">Net ROI/tháng<br>Target: 200 conversions</p>
-      <div class="rev-details">
-        <div class="rev-item"><span class="ri">Organic traffic</span><span class="rv" style="color:var(--green)">~10K/ngày</span></div>
-        <div class="rev-item"><span class="ri">Email subscribers</span><span class="rv" style="color:var(--green)">~2,000+</span></div>
-        <div class="rev-item"><span class="ri">Blog posts live</span><span class="rv" style="color:var(--green)">90+ posts</span></div>
-        <div class="rev-item"><span class="ri">Affiliate conversions</span><span class="rv" style="color:var(--green)">150–200/tháng</span></div>
-        <div class="rev-item"><span class="ri">Avg EPC</span><span class="rv" style="color:var(--green)">$0.38/click</span></div>
-        <div class="rev-item"><span class="ri">Skills iteration</span><span class="rv" style="color:var(--green)">v3+ compound</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="roi-banner">
-    <span class="big">$5,729</span>
-    <div class="sub">Tổng dòng tiền tích lũy sau 12 tuần · Investment: $156 · Return: $5,885</div>
-    <div class="roi-numbers">
-      <div class="roi-n"><span class="rn" style="color:var(--blue)">$156</span><span class="rl">Tổng đầu tư</span></div>
-      <div class="roi-n"><span class="rn" style="color:var(--yellow)">W4</span><span class="rl">Breakeven point</span></div>
-      <div class="roi-n"><span class="rn" style="color:var(--orange)">3,675%</span><span class="rl">ROI 12 tuần</span></div>
-      <div class="roi-n"><span class="rn" style="color:var(--green)">$3,810</span><span class="rl">Monthly run rate W12</span></div>
-      <div class="roi-n"><span class="rn" style="color:var(--purple)">2h/tuần</span><span class="rl">Tony's time từ W5+</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ KPIs ═══ -->
-<section id="kpi">
-  <h2>🎯 KPIs Theo Dõi Hàng Tuần</h2>
-  <div class="kpi-grid">
-    <div class="kpi-card">
-      <h4>📊 Traffic & SEO</h4>
-      <div class="kpi-row"><span class="km">Organic sessions/ngày</span><span class="kv" style="color:var(--blue)">W4: 500 → W12: 10K</span></div>
-      <div class="kpi-row"><span class="km">Pages indexed Google</span><span class="kv" style="color:var(--blue)">W2: 15 → W12: 90+</span></div>
-      <div class="kpi-row"><span class="km">Avg position top keywords</span><span class="kv" style="color:var(--blue)">&lt;20 by W8</span></div>
-      <div class="kpi-row"><span class="km">Bounce rate</span><span class="kv" style="color:var(--blue)">&lt;65%</span></div>
-      <div class="kpi-row"><span class="km">Pages/session</span><span class="kv" style="color:var(--blue)">&gt;2.1</span></div>
-      <div class="kpi-row"><span class="km">Core Web Vitals LCP</span><span class="kv" style="color:var(--green)">&lt;1.5s</span></div>
-    </div>
-    <div class="kpi-card">
-      <h4>💰 Revenue & Affiliate</h4>
-      <div class="kpi-row"><span class="km">Conversions/tháng</span><span class="kv" style="color:var(--green)">W4: 5 → W12: 200</span></div>
-      <div class="kpi-row"><span class="km">EPC (earnings/click)</span><span class="kv" style="color:var(--green)">Target: &gt;$0.30</span></div>
-      <div class="kpi-row"><span class="km">Avg commission/sale</span><span class="kv" style="color:var(--green)">$19.4 (20% × $97)</span></div>
-      <div class="kpi-row"><span class="km">Top program revenue %</span><span class="kv" style="color:var(--green)">&lt;40% (diversify)</span></div>
-      <div class="kpi-row"><span class="km">Email CTR → affiliate</span><span class="kv" style="color:var(--green)">&gt;3.5%</span></div>
-      <div class="kpi-row"><span class="km">Landing page CVR</span><span class="kv" style="color:var(--green)">&gt;4%</span></div>
-    </div>
-    <div class="kpi-card">
-      <h4>🤖 OpenClaw Performance</h4>
-      <div class="kpi-row"><span class="km">Gateway uptime</span><span class="kv" style="color:var(--purple)">&gt;99.5%</span></div>
-      <div class="kpi-row"><span class="km">Avg tokens/skill call</span><span class="kv" style="color:var(--purple)">&lt;900 (vs 3,200)</span></div>
-      <div class="kpi-row"><span class="km">S4+S8 API cost/tháng</span><span class="kv" style="color:var(--purple)">&lt;$50 hard cap</span></div>
-      <div class="kpi-row"><span class="km">Blog posts generated/ngày</span><span class="kv" style="color:var(--purple)">1/ngày autonomous</span></div>
-      <div class="kpi-row"><span class="km">Skills với CVR &gt; 3%</span><span class="kv" style="color:var(--purple)">&gt;30/52 by W12</span></div>
-      <div class="kpi-row"><span class="km">Free Ride ratio</span><span class="kv" style="color:var(--purple)">38/52 = 73% free</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ EFFICIENCY ═══ -->
-<section id="efficiency">
-  <h2>⚡ Phân Tích Hiệu Quả Từng Vai Trò</h2>
-  <div class="eff-grid">
-    <div class="eff-card">
-      <h4>👨‍💼 Mr. Tony</h4>
-      <div class="eff-meter"><div class="eff-fill" style="width:15%;background:var(--orange)"></div></div>
-      <div class="eff-pct" style="color:var(--orange)">15%</div>
-      <div class="eff-note">thời gian / effort tổng. Chỉ làm việc cần human auth hoặc strategic decisions. <strong>2h/tuần từ W5+.</strong> ROI/giờ cao nhất vì đưa ra hướng đi đúng.</div>
-    </div>
-    <div class="eff-card">
-      <h4>🧠 Claude Cowork</h4>
-      <div class="eff-meter"><div class="eff-fill" style="width:30%;background:var(--purple)"></div></div>
-      <div class="eff-pct" style="color:var(--purple)">30%</div>
-      <div class="eff-note">effort giai đoạn đầu (W1–W4). On-demand sessions. <strong>Tạo tài sản một lần, dùng mãi.</strong> SKILL.md, templates, frameworks — compound value.</div>
-    </div>
-    <div class="eff-card">
-      <h4>⌨️ Claude Code</h4>
-      <div class="eff-meter"><div class="eff-fill" style="width:20%;background:var(--blue)"></div></div>
-      <div class="eff-pct" style="color:var(--blue)">20%</div>
-      <div class="eff-note">tập trung W1–W2 (website build) và khi cần hotfix/feature. <strong>Sprint-based, không idle.</strong> CF Workers, GitHub Actions, PR submits.</div>
-    </div>
-    <div class="eff-card">
-      <h4>🤖 OpenClaw</h4>
-      <div class="eff-meter"><div class="eff-fill" style="width:95%;background:var(--green)"></div></div>
-      <div class="eff-pct" style="color:var(--green)">95%</div>
-      <div class="eff-note">uptime từ W3 trở đi. <strong>24/7 autonomous — không cần giám sát.</strong> Handles 80% của toàn bộ revenue-generating activities. $0 cho 73% tasks.</div>
-    </div>
-  </div>
-
-  <div class="three" style="margin-top:20px">
-    <div style="background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:18px">
-      <h3>⏱ Thời Gian Tony/Tuần</h3>
-      <div style="font-size:12px;color:var(--dm)">
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>W1–W2 (setup)</span><span style="color:var(--orange);font-weight:700">~3h/tuần</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>W3–W4 (launch)</span><span style="color:var(--orange);font-weight:700">~4h/tuần</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>W5–W8 (scale)</span><span style="color:var(--yellow);font-weight:700">~2h/tuần</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0"><span>W9–W12 (flywheel)</span><span style="color:var(--green);font-weight:700">~2h/tuần</span></div>
-      </div>
-    </div>
-    <div style="background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:18px">
-      <h3>🔄 Automation Rate</h3>
-      <div style="font-size:12px;color:var(--dm)">
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>Blog content creation</span><span style="color:var(--green);font-weight:700">100% auto</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>Social media posts</span><span style="color:var(--green);font-weight:700">100% auto</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>KPI reporting</span><span style="color:var(--green);font-weight:700">100% auto</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>Landing page creation</span><span style="color:var(--green);font-weight:700">90% auto</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0"><span>Strategy decisions</span><span style="color:var(--orange);font-weight:700">Tony only</span></div>
-      </div>
-    </div>
-    <div style="background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:18px">
-      <h3>💡 Value Per Role</h3>
-      <div style="font-size:12px;color:var(--dm)">
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>OpenClaw value</span><span style="color:var(--green);font-weight:700">$5,200+ revenue</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>Cowork value</span><span style="color:var(--purple);font-weight:700">Assets + systems</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(48,54,61,.4)"><span>Code value</span><span style="color:var(--blue);font-weight:700">Platform built</span></div>
-        <div style="display:flex;justify-content:space-between;padding:5px 0"><span>Tony value</span><span style="color:var(--orange);font-weight:700">Direction × all</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RISK ═══ -->
-<section id="risk">
-  <h2>⚠️ Rủi Ro & Mitigation</h2>
-  <table class="risk-table">
-    <thead><tr><th>Rủi Ro</th><th>Mức độ</th><th>Xác suất</th><th>Mitigation</th><th>Backup Plan</th></tr></thead>
-    <tbody>
-      <tr>
-        <td>OpenClaw Gateway offline (Mac Mini M2 crash)</td>
-        <td class="risk-H">HIGH</td>
-        <td>20%/tháng</td>
-        <td>PM2 auto-restart, openclaw-health-check CRON mỗi 5 phút</td>
-        <td>Telegram alert → Tony restart trong 10 phút. Uptime target 99.5%</td>
-      </tr>
-      <tr>
-        <td>Google SEO algorithm update derank</td>
-        <td class="risk-M">MEDIUM</td>
-        <td>15%</td>
-        <td>Hub & Spoke model, topical authority, quality-first content</td>
-        <td>Diversify: social (TikTok/Twitter) + email list không phụ thuộc Google</td>
-      </tr>
-      <tr>
-        <td>Affiliate program đóng cửa/giảm commission</td>
-        <td class="risk-M">MEDIUM</td>
-        <td>25%</td>
-        <td>Multi-program portfolio (≥10 programs), không program nào &gt;40% revenue</td>
-        <td>multi-program-manager S7 tự động switch sang program thay thế</td>
-      </tr>
-      <tr>
-        <td>API cost vượt $50/tháng cap</td>
-        <td class="risk-L">LOW</td>
-        <td>10%</td>
-        <td>73% token reduction, hard cap trong openclaw.yaml budget field</td>
-        <td>free-ride-optimizer S0 auto-detect violations + route sang free models</td>
-      </tr>
-      <tr>
-        <td>GitHub Pages downtime</td>
-        <td class="risk-L">LOW</td>
-        <td>2%</td>
-        <td>Cloudflare cache (24h), static site</td>
-        <td>Migrate sang Vercel trong &lt;1 giờ (zero code changes needed)</td>
-      </tr>
-      <tr>
-        <td>FTC compliance violation</td>
-        <td class="risk-H">HIGH</td>
-        <td>30% nếu không check</td>
-        <td>compliance-checker S8 chạy trên mọi content trước khi publish</td>
-        <td>AffiliateDisclosure component tự động inject vào mọi blog post</td>
-      </tr>
-      <tr>
-        <td>Content quality thấp → bounce rate cao</td>
-        <td class="risk-M">MEDIUM</td>
-        <td>40% nếu không review</td>
-        <td>Tony review 15 bài đầu, SKILL.md quality gate, self-improver loop</td>
-        <td>Cowork weekly session để rewrite underperforming posts</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
 </div>
 
-<footer>
-  <p><strong>Master Deployment Plan — MoltyFlywheel.com</strong> · 4 Roles · 5 Phases · 12 Weeks · $3,810 Target</p>
-  <p style="margin-top:6px">OpenClaw × Claude Cowork × Claude Code × Mr. Tony · Budget: $51/tháng · ROI: 3,675%</p>
-  <p style="margin-top:6px;color:var(--dm)">Designed by Claude Cowork · 2026-03-22 · moltyflywheel.com</p>
-</footer>
+<!-- ═══════════════════════════════════════
+     SECTION 1: OVERVIEW
+═══════════════════════════════════════ -->
+<section id="overview" class="section-hero">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="badge" style="background: rgba(255,87,51,0.15); color: var(--lobster); margin-bottom: 20px;">Chiến Lược Tổng Thể — A-Z Master v1.0</div>
+    <h1 style="font-size: 52px; font-weight: 900; line-height: 1.05; margin: 0 0 16px; text-transform: uppercase;">
+      Nền Kinh Tế<br><span style="color: var(--lobster);">AI Agent</span> Tự Vận Hành
+    </h1>
+    <p style="color: #94A3B8; font-size: 16px; max-width: 600px; line-height: 1.7; margin-bottom: 40px;">
+      Hệ thống <strong style="color: white;">Bánh Đà Tiếp Thị Tự Sinh v1.0</strong> — khai thác đòn bẩy Mac Mini M2 + OpenClaw + Affitor để đạt trạng thái chi phí biên bằng 0 và lợi nhuận tăng trưởng theo cấp số nhân.
+    </p>
+    <div class="g4" style="max-width: 800px;">
+      <div class="stat-block" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+        <div class="stat-num" style="color: #10B981;">$3,810</div>
+        <div class="stat-sub" style="color: #64748B;">Net ROI / Tháng</div>
+      </div>
+      <div class="stat-block" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+        <div class="stat-num" style="color: var(--lobster);">45</div>
+        <div class="stat-sub" style="color: #64748B;">Affiliate Skills</div>
+      </div>
+      <div class="stat-block" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+        <div class="stat-num" style="color: var(--gold);">30</div>
+        <div class="stat-sub" style="color: #64748B;">Bài/ngày (Free Ride)</div>
+      </div>
+      <div class="stat-block" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1);">
+        <div class="stat-num" style="color: var(--indigo);">8</div>
+        <div class="stat-sub" style="color: #64748B;">Kỹ năng cốt lõi (S1–S8)</div>
+      </div>
+    </div>
 
+    <!-- Flywheel flow -->
+    <div style="margin-top: 48px;">
+      <div style="font-size: 11px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Vòng Xoay Bánh Đà</div>
+      <div style="display: flex; align-items: center; gap: 0; flex-wrap: wrap; gap: 8px;">
+        <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 110px;">
+          <div style="font-size: 18px;">🔍</div>
+          <div style="font-size: 10px; font-weight: 800; color: #94A3B8; margin-top: 4px; text-transform: uppercase;">S1 Research</div>
+        </div>
+        <div style="color: var(--lobster); font-size: 20px; font-weight: 900;">→</div>
+        <div style="background: rgba(255,87,51,0.15); border: 1px solid rgba(255,87,51,0.3); border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 110px;">
+          <div style="font-size: 18px;">✍️</div>
+          <div style="font-size: 10px; font-weight: 800; color: #94A3B8; margin-top: 4px; text-transform: uppercase;">S2–S3 Content</div>
+        </div>
+        <div style="color: var(--lobster); font-size: 20px; font-weight: 900;">→</div>
+        <div style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 110px;">
+          <div style="font-size: 18px;">🚀</div>
+          <div style="font-size: 10px; font-weight: 800; color: #94A3B8; margin-top: 4px; text-transform: uppercase;">S4 Landing Page</div>
+        </div>
+        <div style="color: var(--lobster); font-size: 20px; font-weight: 900;">→</div>
+        <div style="background: rgba(217,119,6,0.15); border: 1px solid rgba(217,119,6,0.3); border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 110px;">
+          <div style="font-size: 18px;">📧</div>
+          <div style="font-size: 10px; font-weight: 800; color: #94A3B8; margin-top: 4px; text-transform: uppercase;">S5 Email Drip</div>
+        </div>
+        <div style="color: var(--lobster); font-size: 20px; font-weight: 900;">→</div>
+        <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 110px;">
+          <div style="font-size: 18px;">📈</div>
+          <div style="font-size: 10px; font-weight: 800; color: #94A3B8; margin-top: 4px; text-transform: uppercase;">S6 Track & Convert</div>
+        </div>
+        <div style="color: var(--lobster); font-size: 20px; font-weight: 900;">→</div>
+        <div style="background: rgba(255,87,51,0.15); border: 1px solid rgba(255,87,51,0.3); border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 110px;">
+          <div style="font-size: 18px;">🔄</div>
+          <div style="font-size: 10px; font-weight: 800; color: #94A3B8; margin-top: 4px; text-transform: uppercase;">S7–S8 Evolve</div>
+        </div>
+        <div style="color: var(--lobster); font-size: 20px; font-weight: 900;">↩</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 2: KPI DASHBOARD
+═══════════════════════════════════════ -->
+<section id="kpi" class="section" style="background: #F8FAFC;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">KPI Dashboard</h2>
+    <p class="section-subtitle">Theo dõi tiến độ theo thời gian thực — cập nhật mỗi tuần</p>
+
+    <div class="g4" style="margin-top: 32px;">
+      <div class="stat-block">
+        <div class="kpi-label">Tuần Hiện Tại</div>
+        <div class="stat-num" style="color: var(--dark);" id="kpi-week">1</div>
+        <div class="stat-sub">/ 12 tuần</div>
+        <div class="progress-bar" style="margin-top: 12px;"><div class="progress-fill" id="pb-week" style="width:8%; background: var(--lobster);"></div></div>
+      </div>
+      <div class="stat-block">
+        <div class="kpi-label">Traffic Đạt Được</div>
+        <div class="stat-num" style="color: var(--indigo);" id="kpi-traffic">0</div>
+        <div class="stat-sub">/ 10,000 clicks</div>
+        <div class="progress-bar" style="margin-top: 12px;"><div class="progress-fill" id="pb-traffic" style="width:0%; background: var(--indigo);"></div></div>
+      </div>
+      <div class="stat-block">
+        <div class="kpi-label">Paid Users</div>
+        <div class="stat-num" style="color: var(--gold);" id="kpi-users">0</div>
+        <div class="stat-sub">/ 200 users</div>
+        <div class="progress-bar" style="margin-top: 12px;"><div class="progress-fill" id="pb-users" style="width:0%; background: var(--gold);"></div></div>
+      </div>
+      <div class="stat-block">
+        <div class="kpi-label">Net ROI Đạt</div>
+        <div class="stat-num" style="color: var(--emerald);" id="kpi-roi">$0</div>
+        <div class="stat-sub">/ $3,810</div>
+        <div class="progress-bar" style="margin-top: 12px;"><div class="progress-fill" id="pb-roi" style="width:0%; background: var(--emerald);"></div></div>
+      </div>
+    </div>
+
+    <!-- KPI Slider Simulator -->
+    <div class="card" style="margin-top: 28px;">
+      <div style="font-weight: 800; font-size: 14px; margin-bottom: 16px;">Mô phỏng tiến độ — Kéo để cập nhật tuần</div>
+      <input type="range" id="weekSlider" min="1" max="12" value="1" style="width: 100%; accent-color: var(--lobster);">
+      <div style="display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; color: var(--muted); margin-top: 6px;">
+        <span>Tuần 1</span><span>Tuần 4 (Tháng 1)</span><span>Tuần 8 (Tháng 2)</span><span>Tuần 12 (Tháng 3)</span>
+      </div>
+    </div>
+
+    <!-- Financial projection -->
+    <div class="g2" style="margin-top: 28px;">
+      <div class="card">
+        <div style="font-weight: 800; font-size: 13px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Dự Báo Dòng Tiền 3 Tháng</div>
+        <div class="chart-wrap"><canvas id="projectionChart"></canvas></div>
+      </div>
+      <div class="card">
+        <div style="font-weight: 800; font-size: 13px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em;">Phân Bổ Chi Phí & Lợi Nhuận</div>
+        <div class="chart-wrap"><canvas id="roiChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 3: HẠ TẦNG KỸ THUẬT
+═══════════════════════════════════════ -->
+<section id="infra" class="section">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Hạ Tầng Kỹ Thuật</h2>
+    <p class="section-subtitle">Mac Mini M2 + OpenClaw + Free Ride Engine + PM2 — "Chi phí biên bằng 0"</p>
+
+    <!-- Hardware specs -->
+    <div class="g3" style="margin-top: 32px;">
+      <div class="card-dark" style="border: 1px solid #334155;">
+        <div style="font-size: 10px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Máy Chủ</div>
+        <div style="space-y: 10px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span style="color: #94A3B8; font-size: 13px;">Vi xử lý</span><span style="font-weight: 800; font-size: 13px;">Apple M2 (arm64)</span></div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span style="color: #94A3B8; font-size: 13px;">RAM</span><span style="font-weight: 800; font-size: 13px; color: var(--indigo);">8GB Unified</span></div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span style="color: #94A3B8; font-size: 13px;">SSD</span><span style="font-weight: 800; font-size: 13px;">256GB NVMe</span></div>
+          <div style="display: flex; justify-content: space-between;"><span style="color: #94A3B8; font-size: 13px;">Uptime</span><span style="font-weight: 800; font-size: 13px; color: #10B981;">24/7 Online</span></div>
+        </div>
+      </div>
+      <div class="card-dark" style="border: 1px solid #334155;">
+        <div style="font-size: 10px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">RAM Strategy</div>
+        <div style="font-size: 12px; color: #94A3B8; line-height: 1.6; margin-bottom: 12px;">❌ <strong style="color: white;">KHÔNG</strong> chạy Local LLM (4.5GB → Swap SSD)</div>
+        <div style="font-size: 12px; color: #94A3B8; line-height: 1.6;">✅ <strong style="color: #10B981;">API-First</strong> via OpenRouter: OS 3GB + OpenClaw 1GB = 4GB còn dư</div>
+        <div style="margin-top: 16px; background: #0F172A; border-radius: 10px; padding: 12px;">
+          <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;"><span style="color: #64748B;">macOS</span><span style="color: #94A3B8;">3 GB</span></div>
+          <div class="progress-bar" style="margin-bottom: 8px;"><div class="progress-fill" style="width:37.5%; background: #64748B;"></div></div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;"><span style="color: var(--indigo);">OpenClaw</span><span style="color: #94A3B8;">1 GB</span></div>
+          <div class="progress-bar" style="margin-bottom: 8px;"><div class="progress-fill" style="width:12.5%; background: var(--indigo);"></div></div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 4px;"><span style="color: #10B981;">Free Buffer</span><span style="color: #10B981;">4 GB ✓</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%; background: #10B981;"></div></div>
+        </div>
+      </div>
+      <div class="card-dark" style="border: 1px solid #334155;">
+        <div style="font-size: 10px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">Architecture</div>
+        <div style="text-align: center;">
+          <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 10px; padding: 10px; margin-bottom: 8px; font-size: 12px;">📱 Telegram / WhatsApp (Remote)</div>
+          <div style="color: var(--muted); font-size: 18px; margin: 4px 0;">↓</div>
+          <div style="background: rgba(255,87,51,0.2); border: 1px solid rgba(255,87,51,0.4); border-radius: 10px; padding: 10px; margin-bottom: 8px; font-size: 13px; font-weight: 800;">🦞 OpenClaw Gateway</div>
+          <div style="color: var(--muted); font-size: 18px; margin: 4px 0;">↓</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+            <div style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 8px; padding: 8px; font-size: 10px; text-align: center;">💾 Persistent Memory SSD</div>
+            <div style="background: rgba(217,119,6,0.1); border: 1px solid rgba(217,119,6,0.2); border-radius: 8px; padding: 8px; font-size: 10px; text-align: center;">🤖 Free Ride (OpenRouter)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Setup terminal -->
+    <div style="margin-top: 28px;">
+      <div style="font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Lệnh Triển Khai (5 Bước)</div>
+      <div class="terminal">
+        <div class="cmt"># ─── BƯỚC 1: Môi Trường Node.js (arm64) ───</div>
+        <div><span class="cmd">curl</span> -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash</div>
+        <div><span class="cmd">nvm</span> install 24 &amp;&amp; nvm use 24 &amp;&amp; nvm alias default 24</div>
+        <div><span class="cmd">npm</span> install -g pnpm pm2</div>
+        <br>
+        <div class="cmt"># ─── BƯỚC 2: Cài OpenClaw ───</div>
+        <div><span class="cmd">curl</span> -fsSL https://openclaw.ai/install.sh | bash</div>
+        <div><span class="cmd">openclaw</span> onboard  <span class="cmt"># Wizard cấu hình Telegram + allowFrom whitelist</span></div>
+        <br>
+        <div class="cmt"># ─── BƯỚC 3: Free Ride Engine ───</div>
+        <div><span class="cmd">npx</span> clawhub@latest install free-ride</div>
+        <div><span class="cmd">echo</span> 'export OPENROUTER_API_KEY="sk-or-v1-YOUR_KEY"' >> ~/.zshrc &amp;&amp; source ~/.zshrc</div>
+        <br>
+        <div class="cmt"># ─── BƯỚC 4: Affiliate Skills ───</div>
+        <div><span class="cmd">git</span> clone https://github.com/Affitor/affiliate-skills.git ~/.openclaw/skills/affiliate-skills</div>
+        <div><span class="cmd">npx</span> clawhub@latest install mcporter</div>
+        <br>
+        <div class="cmt"># ─── BƯỚC 5: PM2 24/7 ───</div>
+        <div><span class="cmd">pm2</span> start openclaw --name "OpenClaw-Gateway" -- start</div>
+        <div><span class="cmd">pm2</span> startup &amp;&amp; pm2 save</div>
+        <div class="ok"># ✓ Gateway đang chạy nền 24/7 — không bao giờ tắt</div>
+      </div>
+    </div>
+
+    <!-- Accounts needed -->
+    <div style="margin-top: 28px;">
+      <div style="font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">Tài Khoản Cần Chuẩn Bị</div>
+      <div class="g3">
+        <div class="card" style="border-left: 4px solid var(--indigo);">
+          <div style="font-size: 20px; margin-bottom: 8px;">🤖</div>
+          <div style="font-weight: 800; font-size: 13px;">OpenRouter API Key</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5;">Nạp tối thiểu $5 để test. $50/tháng cho Turbo mode. Dùng cho S4 (Landing) + S8 (Compliance).</div>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--gold);">
+          <div style="font-size: 20px; margin-bottom: 8px;">💬</div>
+          <div style="font-weight: 800; font-size: 13px;">Telegram Bot Token</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5;">Tạo via @BotFather. Cấu hình <code>allowFrom</code> whitelist username để bảo mật gateway.</div>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--emerald);">
+          <div style="font-size: 20px; margin-bottom: 8px;">🤝</div>
+          <div style="font-weight: 800; font-size: 13px;">Affitor Network</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5;">Đăng ký tại list.affitor.com. Lấy Referral code + kết nối Stripe để nhận hoa hồng USD.</div>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--lobster);">
+          <div style="font-size: 20px; margin-bottom: 8px;">📱</div>
+          <div style="font-weight: 800; font-size: 13px;">Social Accounts</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5;">X, LinkedIn, Reddit (aged accounts ưu tiên). Agent tự đăng bài đồng loạt 24/7.</div>
+        </div>
+        <div class="card" style="border-left: 4px solid #8B5CF6;">
+          <div style="font-size: 20px; margin-bottom: 8px;">🏦</div>
+          <div style="font-weight: 800; font-size: 13px;">Stripe Connect</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5;">Tài khoản Stripe đã xác minh. Hoa hồng tự động chuyển USD → VND qua ngân hàng.</div>
+        </div>
+        <div class="card" style="border-left: 4px solid #0EA5E9;">
+          <div style="font-size: 20px; margin-bottom: 8px;">💻</div>
+          <div style="font-weight: 800; font-size: 13px;">GitHub Account</div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5;">Lưu trữ code + dùng GitHub Pages làm hosting miễn phí cho Bio-link và Landing Page.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 4: DOMAIN & BRAND
+═══════════════════════════════════════ -->
+<section id="domain" class="section" style="background: #F8FAFC;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Domain & Brand Strategy</h2>
+    <p class="section-subtitle">Domain chính thức đã xác nhận: <strong style="color: var(--lobster);">MoltyFlywheel.com</strong> — Pháo đài Persistent Memory cho Molty 🦞</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;">
+      <div class="card" style="border: 2px solid var(--lobster); background: linear-gradient(135deg, #fff5f3 0%, #fff 60%);">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <span style="font-size: 24px;">🚀</span>
+          <span class="badge" style="background: var(--lobster); color: white;">✓ ĐÃ XÁC NHẬN</span>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--lobster); margin-bottom: 8px;">MoltyFlywheel.com</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 12px;">Tên miền chính thức đã xác nhận. Brand + Flywheel strategy. Trung tâm của toàn bộ hệ sinh thái: Blog SEO, Landing Page, Email, Bio-link.</div>
+        <div style="background: rgba(255,87,51,0.08); border: 1px solid rgba(255,87,51,0.2); border-radius: 8px; padding: 8px 12px; font-size: 11px; color: var(--lobster); font-weight: 800;">
+          🔗 admin@moltyflywheel.com &nbsp;·&nbsp; github.com/moltyflywheel
+        </div>
+      </div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <span style="font-size: 24px;">💰</span>
+          <span class="badge" style="background: #DCFCE7; color: #166534;">Dòng Tiền</span>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--lobster); margin-bottom: 8px;">AgenticProfit.io</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;">Trực diện kết quả kinh tế. Income + Automation. Phù hợp chiến dịch $50 Turbo nhắm lợi nhuận $3,810/tháng.</div>
+      </div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <span style="font-size: 24px;">🏰</span>
+          <span class="badge" style="background: #EFF6FF; color: #1D4ED8;">Peter Thiel Moat</span>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--lobster); margin-bottom: 8px;">TheOnlyVoice.net</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;">Triết lý "Tiếng nói duy nhất". Authority + Niche monopoly. Phù hợp Blog SEO & Newsletter.</div>
+      </div>
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+          <span style="font-size: 24px;">⚙️</span>
+          <span class="badge" style="background: #F1F5F9; color: #475569;">Hạ Tầng Local</span>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; color: var(--lobster); margin-bottom: 8px;">OpenClawNodes.com</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;">Community + Nodes. Nhắm cộng đồng Mac Mini M2 tự vận hành Agent phân tán. Phù hợp dịch vụ setup.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 16px; border: 2px solid #8B5CF6;">
+      <div style="display: flex; gap: 24px; align-items: start;">
+        <div style="flex: 1;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <span style="font-size: 28px;">🦞</span>
+            <span class="badge" style="background: #EDE9FE; color: #6D28D9;">Space Meme Viral</span>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: var(--lobster); margin-bottom: 8px;">SpaceLobster.agency</div>
+          <div style="font-size: 12px; color: var(--muted); line-height: 1.6;">Tận dụng triệt để linh vật Molty. "Agency 1 người với sức mạnh 100 Agent." Meme potential cao, dễ viral trên X và TikTok.</div>
+        </div>
+        <div style="background: #F8FAFC; border-radius: 12px; padding: 16px; min-width: 180px; border: 1px dashed #E2E8F0;">
+          <div style="font-size: 10px; font-weight: 900; color: var(--muted); text-transform: uppercase; margin-bottom: 10px;">Điểm Mạnh</div>
+          <div style="font-size: 12px; color: #1E293B; line-height: 2;">✓ Dễ nhớ, giải trí cao<br>✓ Meme potential<br>✓ Mascot có linh hồn</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Domain checklist -->
+    <div style="margin-top: 32px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <div style="font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Checklist Triển Khai MoltyFlywheel.com</div>
+        <span class="badge" style="background: var(--lobster); color: white;">Domain Đã Xác Nhận</span>
+      </div>
+      <div class="g2">
+        <label class="check-item"><input type="checkbox"><div><strong style="font-size: 13px;">Đăng ký MoltyFlywheel.com</strong><br><span style="font-size: 12px; color: var(--muted);">Mua tại Namecheap/Cloudflare Registrar. Ưu tiên .com vì uy tín SEO cao nhất.</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong style="font-size: 13px;">SSL & DNS (Cloudflare Proxy)</strong><br><span style="font-size: 12px; color: var(--muted);">Trỏ Cloudflare → Mac Mini M2. Ẩn IP thật, bảo vệ Gateway 24/7.</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong style="font-size: 13px;">Business Email: admin@moltyflywheel.com</strong><br><span style="font-size: 12px; color: var(--muted);">Tạo qua Cloudflare Email Routing (miễn phí) hoặc Google Workspace. Tăng tỷ lệ inbox S5.</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong style="font-size: 13px;">GitHub: github.com/moltyflywheel</strong><br><span style="font-size: 12px; color: var(--muted);">Tạo Org/Repo trùng tên. GitHub Pages → Landing Page miễn phí tại moltyflywheel.com.</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong style="font-size: 13px;">Social Handle: @MoltyFlywheel</strong><br><span style="font-size: 12px; color: var(--muted);">Đặt đồng bộ trên X, LinkedIn, Reddit để Agent cross-post tự động.</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong style="font-size: 13px;">Blog SEO tại blog.moltyflywheel.com</strong><br><span style="font-size: 12px; color: var(--muted);">Subdomain cho 10 bài SEO ngách hẹp (Tuần 5-6). S4 builder tự động xuất bản.</span></div></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 5: AFFILIATE & SKILLS
+═══════════════════════════════════════ -->
+<section id="affiliate" class="section">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Affiliate & Monetization</h2>
+    <p class="section-subtitle">45 Skills × Affitor Network × $50 Turbo = $3,810 Net ROI / tháng</p>
+
+    <!-- 8 Core Skills -->
+    <div style="margin-top: 32px; margin-bottom: 12px; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">8 Kỹ Năng Cốt Lõi (S1 → S8)</div>
+    <div class="g4">
+      <div class="card" style="border-top: 3px solid var(--indigo); text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">🔍</div>
+        <div style="font-size: 11px; font-weight: 900; color: var(--indigo); text-transform: uppercase; margin-bottom: 4px;">S1</div>
+        <div style="font-weight: 800; font-size: 12px;">Niche Research</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">affiliate-program-search</div>
+      </div>
+      <div class="card" style="border-top: 3px solid var(--lobster); text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">✍️</div>
+        <div style="font-size: 11px; font-weight: 900; color: var(--lobster); text-transform: uppercase; margin-bottom: 4px;">S2</div>
+        <div style="font-weight: 800; font-size: 12px;">Content Atomizer</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">content-pillar-atomizer</div>
+      </div>
+      <div class="card" style="border-top: 3px solid var(--lobster); text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">🔗</div>
+        <div style="font-size: 11px; font-weight: 900; color: var(--lobster); text-transform: uppercase; margin-bottom: 4px;">S3</div>
+        <div style="font-weight: 800; font-size: 12px;">Multi-Channel Publish</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">twitter-thread-writer</div>
+      </div>
+      <div class="card" style="border-top: 3px solid var(--gold); text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">🚀</div>
+        <div style="font-size: 11px; font-weight: 900; color: var(--gold); text-transform: uppercase; margin-bottom: 4px;">S4</div>
+        <div style="font-weight: 800; font-size: 12px;">Landing Page Builder</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">affiliate-blog-builder</div>
+      </div>
+      <div class="card" style="border-top: 3px solid #8B5CF6; text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">📧</div>
+        <div style="font-size: 11px; font-weight: 900; color: #8B5CF6; text-transform: uppercase; margin-bottom: 4px;">S5</div>
+        <div style="font-weight: 800; font-size: 12px;">Email Drip Sequence</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">email-drip-sequence</div>
+      </div>
+      <div class="card" style="border-top: 3px solid var(--emerald); text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">📊</div>
+        <div style="font-size: 11px; font-weight: 900; color: var(--emerald); text-transform: uppercase; margin-bottom: 4px;">S6</div>
+        <div style="font-weight: 800; font-size: 12px;">Conversion Tracker</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">conversion-tracker</div>
+      </div>
+      <div class="card" style="border-top: 3px solid #0EA5E9; text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">♻️</div>
+        <div style="font-size: 11px; font-weight: 900; color: #0EA5E9; text-transform: uppercase; margin-bottom: 4px;">S7</div>
+        <div style="font-weight: 800; font-size: 12px;">Content Repurposer</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">content-repurposer</div>
+      </div>
+      <div class="card" style="border-top: 3px solid var(--lobster); text-align: center;">
+        <div style="font-size: 22px; margin-bottom: 8px;">🧬</div>
+        <div style="font-size: 11px; font-weight: 900; color: var(--lobster); text-transform: uppercase; margin-bottom: 4px;">S8</div>
+        <div style="font-weight: 800; font-size: 12px;">Self-Improver</div>
+        <div style="font-size: 11px; color: var(--muted); margin-top: 4px;">self-improver (AI Audit)</div>
+      </div>
+    </div>
+
+    <!-- $50 Turbo Model -->
+    <div class="card-dark" style="margin-top: 28px; border: 1px solid #334155;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div>
+          <div style="font-size: 11px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Mô Hình $50 Turbo</div>
+          <h3 style="font-size: 28px; font-weight: 900; margin: 0 0 12px; color: var(--gold);">x10 Quy Mô</h3>
+          <p style="font-size: 13px; color: #94A3B8; line-height: 1.7; margin-bottom: 20px;">$50 KHÔNG dùng viết nội dung thô (Free Ride đã gánh). $50 tập trung 100% vào <strong style="color: white;">High-Value Inference</strong>: S4 Landing + S8 Compliance.</p>
+          <div style="space-y: 10px;">
+            <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; font-size: 13px;"><span style="color: #94A3B8;">Traffic (Clicks)</span><span style="font-weight: 800; color: white;">10,000+</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; font-size: 13px;"><span style="color: #94A3B8;">Paid Users (CVR 2%)</span><span style="font-weight: 800; color: white;">200</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; font-size: 13px;"><span style="color: #94A3B8;">Hoa hồng gộp</span><span style="font-weight: 800; color: #10B981;">$4,000</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; font-size: 13px;"><span style="color: #94A3B8;">Phí Affitor (3.5%)</span><span style="font-weight: 800; color: #F43F5E;">-$140</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-bottom: 8px; font-size: 13px;"><span style="color: #94A3B8;">Ngân sách API</span><span style="font-weight: 800; color: #F43F5E;">-$50</span></div>
+            <div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 8px; font-size: 15px;"><span style="color: #10B981; font-weight: 800;">Net ROI</span><span style="font-weight: 900; color: #10B981; font-size: 20px;">$3,810</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 11px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Free Ride Engine</div>
+          <div style="background: #0D1117; border-radius: 12px; padding: 16px; font-family: monospace; font-size: 11px; color: #56D364; line-height: 2;">
+            S2/S3 Tasks → Llama-3/DeepSeek (FREE)<br>
+            S4/S8 Tasks → Claude 3.5 / Gemini Pro ($$$)<br>
+            Rate-limit hit → Auto-Fallback Model<br>
+            Result: 30 bài/ngày — Chi phí $0
+          </div>
+          <div style="margin-top: 16px; background: rgba(255,87,51,0.1); border: 1px solid rgba(255,87,51,0.2); border-radius: 12px; padding: 16px;">
+            <div style="font-size: 10px; font-weight: 900; color: var(--lobster); text-transform: uppercase; margin-bottom: 8px;">Lưu Ý Kiến Trúc Sư</div>
+            <div style="font-size: 12px; color: #CBD5E1; line-height: 1.6;">Chi phí biên gần như bằng 0. Khi chạy Agent thứ 100, chỉ cần nạp thêm $50 API trong khi lợi nhuận tăng theo cấp số nhân.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 6: SELF-EVOLUTION LOOP
+═══════════════════════════════════════ -->
+<section id="evolution" class="section" style="background: #F8FAFC;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Self-Evolution Loop</h2>
+    <p class="section-subtitle">Agent không chỉ viết bài — nó tự "Hack" mã nguồn và Prompt của chính mình để tối ưu dòng tiền</p>
+
+    <div class="g4" style="margin-top: 32px;">
+      <div class="card" style="border-top: 4px solid var(--emerald); text-align: center; padding: 24px 20px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(16,185,129,0.1); border: 2px solid var(--emerald); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 20px;">1</div>
+        <div style="font-size: 10px; font-weight: 900; color: var(--emerald); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Tracking</div>
+        <div style="font-weight: 800; font-size: 14px; margin-bottom: 8px;">Thu Thập S6</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-size: 11px;">conversion-tracker</code> theo dõi UTM, CTR, CVR thời gian thực từ Affitor.</div>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--gold); text-align: center; padding: 24px 20px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(217,119,6,0.1); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 20px;">2</div>
+        <div style="font-size: 10px; font-weight: 900; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Audit</div>
+        <div style="font-weight: 800; font-size: 14px; margin-bottom: 8px;">Tự Đánh Giá S8</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-size: 11px;">self-improver</code> phân tích: "Tại sao Hook Storytelling thắng Hook Shocking?"</div>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--lobster); text-align: center; padding: 24px 20px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255,87,51,0.1); border: 2px solid var(--lobster); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 20px;">3</div>
+        <div style="font-size: 10px; font-weight: 900; color: var(--lobster); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Self-Hack ⚡</div>
+        <div style="font-weight: 800; font-size: 14px; margin-bottom: 8px;">Cập Nhật Prompt</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;">Molty tự sửa file <code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-size: 11px;">system_prompt.md</code> trên SSD để ưu tiên cấu trúc Win cho chu kỳ sau.</div>
+      </div>
+      <div class="card" style="border-top: 4px solid var(--indigo); text-align: center; padding: 24px 20px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(99,102,241,0.1); border: 2px solid var(--indigo); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 20px;">4</div>
+        <div style="font-size: 10px; font-weight: 900; color: var(--indigo); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Scale</div>
+        <div style="font-weight: 800; font-size: 14px; margin-bottom: 8px;">Tái Chế & Mở Rộng</div>
+        <div style="font-size: 12px; color: var(--muted); line-height: 1.6;"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-size: 11px;">content-repurposer</code> nhân bản template Win sang 10 kênh đồng loạt.</div>
+      </div>
+    </div>
+
+    <div class="card-dark" style="margin-top: 28px; border: 1px solid #334155;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+        <div>
+          <div style="font-weight: 800; font-size: 18px; margin-bottom: 12px;">Điểm Đòn Bẩy: S6 <span style="color: var(--gold);">→</span> S1</div>
+          <p style="font-size: 13px; color: #94A3B8; line-height: 1.7;">Phản hồi dữ liệu liên tục ngược về giai đoạn Nghiên cứu (S1) biến Agent từ công cụ viết bài đơn thuần thành <strong style="color: white;">cỗ máy tự tối ưu hóa</strong>. Nó tự nuôi dưỡng chiến lược theo dữ liệu thực tế.</p>
+          <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="padding: 12px; background: rgba(255,255,255,0.05); border-radius: 10px; text-align: center;">
+              <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 700;">Gen 1 EPC</div>
+              <div style="font-size: 24px; font-weight: 900; color: var(--muted);">$0.50</div>
+            </div>
+            <div style="padding: 12px; background: rgba(255,87,51,0.1); border: 1px solid rgba(255,87,51,0.2); border-radius: 10px; text-align: center;">
+              <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 700;">Gen 5 EPC</div>
+              <div style="font-size: 24px; font-weight: 900; color: var(--lobster);">$5.50</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 11px; font-weight: 900; color: #475569; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">EPC Tăng Trưởng Qua 5 Thế Hệ</div>
+          <div class="chart-wrap" style="height: 220px;"><canvas id="evolutionChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 7: CONTENT 90 NGÀY
+═══════════════════════════════════════ -->
+<section id="content" class="section">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Content Marketing 90 Ngày</h2>
+    <p class="section-subtitle">Chuyển đổi từ "tạo nội dung" sang "vận hành cỗ máy nội dung tự sinh" — Content Moat strategy</p>
+
+    <!-- Content ratio + channels -->
+    <div class="g2" style="margin-top: 32px;">
+      <div class="card">
+        <div style="font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Phân Bổ Tỉ Trọng Nội Dung</div>
+        <div style="margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--indigo); flex-shrink: 0;"></div>
+            <span style="font-size: 13px; font-weight: 700;">Educational (Giáo dục thị trường) — 40%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--gold); flex-shrink: 0;"></div>
+            <span style="font-size: 13px; font-weight: 700;">Tech/Agent Setup (Phô diễn hạ tầng) — 30%</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 12px; height: 12px; border-radius: 50%; background: var(--emerald); flex-shrink: 0;"></div>
+            <span style="font-size: 13px; font-weight: 700;">Conversion/ROI (Chốt đơn) — 30%</span>
+          </div>
+        </div>
+        <div class="chart-wrap" style="height: 200px;"><canvas id="contentChart"></canvas></div>
+      </div>
+      <div>
+        <div style="margin-bottom: 16px; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Ma Trận Kênh Phân Phối</div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div class="card" style="border-left: 4px solid #1DA1F2;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 800; font-size: 13px;">🐦 X (Twitter) — <code style="font-size: 11px; color: var(--lobster);">@MoltyFlywheel</code></div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;"><code style="font-size: 11px;">twitter-thread-writer</code> · 3 bài/ngày · Shocking stats + Tech · Link về moltyflywheel.com</div>
+              </div>
+              <span class="badge" style="background: #EFF6FF; color: #1D4ED8;">S2 Atomizer</span>
+            </div>
+          </div>
+          <div class="card" style="border-left: 4px solid #0A66C2;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 800; font-size: 13px;">💼 LinkedIn — <code style="font-size: 11px; color: var(--lobster);">MoltyFlywheel</code></div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;"><code style="font-size: 11px;">viral-post-writer</code> · 1 bài/ngày · Business Leader + Case Studies · CTA → moltyflywheel.com</div>
+              </div>
+              <span class="badge" style="background: #DCFCE7; color: #166534;">Authority</span>
+            </div>
+          </div>
+          <div class="card" style="border-left: 4px solid #FF4500;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 800; font-size: 13px;">👽 Reddit — <code style="font-size: 11px; color: var(--lobster);">u/MoltyFlywheel</code></div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;"><code style="font-size: 11px;">reddit-post-writer</code> · Đóng vai người dùng ngách · Subreddit infiltration · Drop link blog.moltyflywheel.com</div>
+              </div>
+              <span class="badge" style="background: #FEF3C7; color: #92400E;">Community</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-month timeline -->
+    <div style="margin-top: 32px;">
+      <div style="font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px;">Lộ Trình 3 Tháng</div>
+      <div class="g3">
+        <div class="card" style="border-top: 4px solid var(--lobster);">
+          <div style="font-size: 10px; font-weight: 900; color: var(--lobster); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Tháng 1: Awareness & Setup</div>
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--lobster);"></div>
+            <div style="font-weight: 800; font-size: 13px;">Tuần 1-2: Vision</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;">5 bài Deep Dive về Mac M2 + OpenClaw. Thiết lập vị thế "Architect".</div>
+          </div>
+          <div class="timeline-item" style="padding-bottom: 0;">
+            <div class="timeline-dot" style="background: var(--lobster);"></div>
+            <div style="font-weight: 800; font-size: 13px;">Tuần 3-4: Infra Flex</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;">Show-case hạ tầng $0. Video POV Terminal. Tạo Meme potential Molty 🦞.</div>
+          </div>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--gold);">
+          <div style="font-size: 10px; font-weight: 900; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Tháng 2: Authority & Convert</div>
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--gold);"></div>
+            <div style="font-weight: 800; font-size: 13px;">Tuần 5-6: Monopoly Moat</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;">10 bài SEO ngách hẹp tại <strong>blog.moltyflywheel.com</strong>. Thống lĩnh từ khóa ngách theo chiến lược Peter Thiel.</div>
+          </div>
+          <div class="timeline-item" style="padding-bottom: 0;">
+            <div class="timeline-dot" style="background: var(--gold);"></div>
+            <div style="font-weight: 800; font-size: 13px;">Tuần 7-8: Value Offer</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;">Grand Slam Offer cho sản phẩm Affitor. Email Drip 7 ngày. Chuyển đổi Paid Users.</div>
+          </div>
+        </div>
+        <div class="card" style="border-top: 4px solid var(--emerald);">
+          <div style="font-size: 10px; font-weight: 900; color: var(--emerald); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Tháng 3: Scale & Evolve</div>
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--emerald);"></div>
+            <div style="font-weight: 800; font-size: 13px;">Tuần 9-10: Proof of Evolution</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;">Công khai nhật ký Self-Hack. Show ROI thực tế. Xây dựng niềm tin.</div>
+          </div>
+          <div class="timeline-item" style="padding-bottom: 0;">
+            <div class="timeline-dot" style="background: var(--emerald);"></div>
+            <div style="font-weight: 800; font-size: 13px;">Tuần 11-12: Flywheel Scale</div>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.5;">Nhân bản sang ngách phụ cận. Repurpose Win content → YouTube Scripts. Đạt $3,810.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 8: WEEKLY ACTION PLAN
+═══════════════════════════════════════ -->
+<section id="weekly" class="section" style="background: #F8FAFC;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Action Plan — Từng Tuần</h2>
+    <p class="section-subtitle">Kế hoạch hành động chi tiết 12 tuần × 3 mảng: Kỹ thuật · Content · Affiliate</p>
+
+    <div style="margin-top: 32px; background: white; border-radius: 20px; border: 1px solid #E2E8F0; overflow: hidden;">
+      <div class="week-row" style="background: var(--dark); color: white; font-weight: 900; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">
+        <div>Tuần</div><div>⚙️ Kỹ Thuật & Hạ Tầng</div><div>✍️ Content & Marketing</div><div>💰 Affiliate & KPI</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--lobster);">W1</div>
+        <div>Cài NVM, Node 24, pnpm, PM2. Chạy <code>openclaw onboard</code>.</div>
+        <div>Lên kế hoạch 12 chủ đề Content Pillar cho 3 tháng.</div>
+        <div>Đăng ký Affitor. Lấy Referral code. Kết nối Stripe.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--lobster);">W2</div>
+        <div>Cài Free Ride + OpenRouter key. Test 30 bài/ngày.</div>
+        <div>5 bài Deep Dive: Mac M2 + OpenClaw lên X + LinkedIn.</div>
+        <div>Kích hoạt S1 Research. Chọn ngách Affitor đầu tiên.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--lobster);">W3</div>
+        <div>Clone 45 Skills. Cài Mcporter. Test <code>openclaw skills list</code>.</div>
+        <div>3 video POV Terminal (TikTok/Shorts). Meme Molty 🦞.</div>
+        <div>Chạy S2 Atomizer đầu tiên. KPI: 300 clicks tuần 3.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--gold);">W4</div>
+        <div>Đăng ký <strong>MoltyFlywheel.com</strong>. Cấu hình Cloudflare DNS + SSL. Tạo admin@moltyflywheel.com.</div>
+        <div>10 X Threads. 4 LinkedIn posts. Reddit infiltration 2 Subreddit.</div>
+        <div>KPI T1: 1,000 clicks. Target 20 Paid Users. Net: $381.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--gold);">W5</div>
+        <div>Deploy Landing Page S4 tại <strong>moltyflywheel.com</strong>. GitHub Pages + Custom domain.</div>
+        <div>10 bài SEO ngách hẹp tại <strong>blog.moltyflywheel.com</strong>. Agent tự xuất bản.</div>
+        <div>Cấp ngân sách $50 OpenRouter. Bật High-Value inference.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--gold);">W6</div>
+        <div>Cài Email Drip S5. Cấu hình chuỗi 7 email tự động.</div>
+        <div>Grand Slam Offer post. 3 Case Study thực tế đầu tiên.</div>
+        <div>KPI: 3,000 clicks. 60 Paid Users. Net: ~$1,100.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--gold);">W7</div>
+        <div>Bật S6 Conversion Tracker. Gắn UTM toàn bộ kênh.</div>
+        <div>Phân tích Hook: Storytelling vs Shocking. Chọn Winner.</div>
+        <div>Bật Self-Improver S8. First Self-Hack cycle.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--gold);">W8</div>
+        <div>Review PM2 logs. <code>pm2 flush</code> dọn dẹp. SSD health check.</div>
+        <div>Tổng kết Tháng 2. Công khai kết quả trên X.</div>
+        <div>KPI T2: 6,000 clicks. 120 Paid Users. Net: ~$2,300.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--emerald);">W9</div>
+        <div>Scale lên 2 ngách Affitor song song. Nhân đôi Skills.</div>
+        <div>Công bố nhật ký Self-Hack. Show thay đổi system_prompt.md.</div>
+        <div>S7 Repurpose: Reddit → YouTube Scripts. Bắt đầu kênh YouTube.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--emerald);">W10</div>
+        <div>Tối ưu OpenRouter routing: A/B test Claude vs Gemini cho S4.</div>
+        <div>10 bài Win nhất → Repurpose sang Email Newsletter.</div>
+        <div>KPI: 8,500 clicks. 170 Paid Users. Net: ~$3,200.</div>
+      </div>
+      <div class="week-row">
+        <div style="font-weight: 900; color: var(--emerald);">W11</div>
+        <div>Mở rộng sang ngách phụ cận. Clone toàn bộ hệ thống sang Agent 2.</div>
+        <div>Series "Proof of AI Economy" — 7 ngày consecutive posts.</div>
+        <div>Self-Hack Gen 3 → EPC dự kiến $2.5+. Push for $3,500.</div>
+      </div>
+      <div class="week-row" style="border-bottom: none;">
+        <div style="font-weight: 900; color: var(--emerald);">W12</div>
+        <div>Đánh giá toàn hệ thống. Lên kế hoạch Cycle 2 (Scale x10).</div>
+        <div>Flywheel Scale post: "Cách tôi kiếm $3,810 với 1 máy tính."</div>
+        <div>🎯 KPI T3: 10,000 clicks. 200 Users. <strong>Net: $3,810.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 9: MASTER CHECKLIST
+═══════════════════════════════════════ -->
+<section id="checklist" class="section">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Master Checklist</h2>
+    <p class="section-subtitle">Danh sách kiểm tra tổng thể — đánh dấu hoàn thành từng bước</p>
+    <div class="g2" style="margin-top: 32px;">
+      <div>
+        <div style="font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 12px;">⚙️ Hạ Tầng Kỹ Thuật</div>
+        <label class="check-item"><input type="checkbox"><div><strong>Cài Node.js 24 + pnpm + PM2</strong><br><span style="font-size: 11px; color: var(--muted);">arm64 native trên Mac Mini M2</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Cài OpenClaw + Onboard Wizard</strong><br><span style="font-size: 11px; color: var(--muted);">Cấu hình Telegram bot token + allowFrom whitelist</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Kích hoạt Free Ride Engine</strong><br><span style="font-size: 11px; color: var(--muted);">OpenRouter API key + Llama/DeepSeek free tier</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Clone 45 Affiliate Skills</strong><br><span style="font-size: 11px; color: var(--muted);">github.com/Affitor/affiliate-skills vào ~/.openclaw/skills</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>PM2 Startup + Save (24/7)</strong><br><span style="font-size: 11px; color: var(--muted);">Gateway tự bật khi Mac Mini khởi động lại</span></div></label>
+        <div style="font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 20px 0 12px;">🌐 Domain & Brand</div>
+        <label class="check-item"><input type="checkbox"><div><strong>Đăng ký MoltyFlywheel.com ✓</strong><br><span style="font-size: 11px; color: var(--lobster); font-weight: 700;">Domain đã xác nhận — ưu tiên mua ngay</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Cấu hình Cloudflare DNS + SSL</strong><br><span style="font-size: 11px; color: var(--muted);">Trỏ MoltyFlywheel.com → Mac Mini M2, ẩn IP thật</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Tạo admin@moltyflywheel.com</strong><br><span style="font-size: 11px; color: var(--muted);">Cloudflare Email Routing (miễn phí) cho Email Drip S5</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>GitHub: github.com/moltyflywheel</strong><br><span style="font-size: 11px; color: var(--muted);">GitHub Pages → moltyflywheel.com, hosting miễn phí cho Landing Page</span></div></label>
+      </div>
+      <div>
+        <div style="font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 12px;">💰 Affiliate & Monetization</div>
+        <label class="check-item"><input type="checkbox"><div><strong>Đăng ký Affitor Network</strong><br><span style="font-size: 11px; color: var(--muted);">Lấy Referral code tại list.affitor.com</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Kết nối Stripe (nhận USD)</strong><br><span style="font-size: 11px; color: var(--muted);">Tài khoản đã xác minh, tự động chuyển VND</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Chạy S1 Research đầu tiên</strong><br><span style="font-size: 11px; color: var(--muted);">Chọn ngách giao thoa AI x [Pháp lý/Health/Finance]</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Deploy Landing Page S4</strong><br><span style="font-size: 11px; color: var(--muted);">Claude 3.5 Sonnet viết code, chuẩn SEO + CTA</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Cài Email Drip S5 (7 ngày)</strong><br><span style="font-size: 11px; color: var(--muted);">Chuỗi nuôi dưỡng → chốt đơn tự động</span></div></label>
+        <div style="font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 20px 0 12px;">✍️ Content & Self-Evolution</div>
+        <label class="check-item"><input type="checkbox"><div><strong>Gắn UTM toàn bộ kênh (S6)</strong><br><span style="font-size: 11px; color: var(--muted);">Theo dõi chính xác CTR/CVR theo từng kênh</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>Bật Self-Improver S8</strong><br><span style="font-size: 11px; color: var(--muted);">Đặt lịch chạy tự động mỗi tuần, audit logs S6</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>First Self-Hack Cycle</strong><br><span style="font-size: 11px; color: var(--muted);">Molty tự cập nhật system_prompt.md dựa trên Win data</span></div></label>
+        <label class="check-item"><input type="checkbox"><div><strong>S7 Repurpose: Reddit → YouTube</strong><br><span style="font-size: 11px; color: var(--muted);">Nhân bản nội dung Win sang kênh phụ cận</span></div></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SECTION 10: RỦI RO & XỬ LÝ
+═══════════════════════════════════════ -->
+<section id="risks" class="section" style="background: #F8FAFC; padding-bottom: 80px;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <div class="accent-line"></div>
+    <h2 class="section-title">Rủi Ro & Phương Án Xử Lý</h2>
+    <p class="section-subtitle">Ma trận rủi ro — nhận diện sớm, xử lý nhanh, không gián đoạn dòng tiền</p>
+    <div style="margin-top: 32px; background: white; border-radius: 20px; border: 1px solid #E2E8F0; overflow: hidden;">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; background: var(--dark); color: white; padding: 12px 20px; font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; gap: 16px;">
+        <div>Rủi Ro</div><div>Xác Suất</div><div>Mức Độ</div><div>Phương Án Xử Lý</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; padding: 14px 20px; font-size: 12px; gap: 16px; border-bottom: 1px solid #E2E8F0; align-items: center;">
+        <div style="font-weight: 700;">OpenRouter Rate Limit vượt ngưỡng</div>
+        <div><span class="badge" style="background: #FEF3C7; color: #92400E;">Cao</span></div>
+        <div><span class="badge" style="background: #FEE2E2; color: #991B1B;">Cao</span></div>
+        <div style="color: var(--muted);">Free Ride tự động fallback sang model dự phòng (Llama/Mixtral). Không gián đoạn.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; padding: 14px 20px; font-size: 12px; gap: 16px; border-bottom: 1px solid #E2E8F0; align-items: center; background: #F8FAFC;">
+        <div style="font-weight: 700;">SSD 256GB gần đầy</div>
+        <div><span class="badge" style="background: #FEF3C7; color: #92400E;">Trung bình</span></div>
+        <div><span class="badge" style="background: #FEF3C7; color: #92400E;">Trung bình</span></div>
+        <div style="color: var(--muted);"><code>pm2 flush</code> định kỳ. Cron job dọn logs hàng tuần. Monitor bằng <code>du -sh ~/.openclaw</code>.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; padding: 14px 20px; font-size: 12px; gap: 16px; border-bottom: 1px solid #E2E8F0; align-items: center;">
+        <div style="font-weight: 700;">Social Account bị ban/giới hạn</div>
+        <div><span class="badge" style="background: #FEF3C7; color: #92400E;">Trung bình</span></div>
+        <div><span class="badge" style="background: #FEE2E2; color: #991B1B;">Cao</span></div>
+        <div style="color: var(--muted);">Dùng aged accounts. Tốc độ đăng bài dưới ngưỡng. Warm-up 2 tuần trước khi tăng tốc.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; padding: 14px 20px; font-size: 12px; gap: 16px; border-bottom: 1px solid #E2E8F0; align-items: center; background: #F8FAFC;">
+        <div style="font-weight: 700;">Affitor thay đổi hoa hồng/điều khoản</div>
+        <div><span class="badge" style="background: #DCFCE7; color: #166534;">Thấp</span></div>
+        <div><span class="badge" style="background: #FEF3C7; color: #92400E;">Cao</span></div>
+        <div style="color: var(--muted);">Đa dạng hóa: chạy song song 2-3 Affiliate Network. S1 Research tự động tìm ngách mới.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; padding: 14px 20px; font-size: 12px; gap: 16px; border-bottom: 1px solid #E2E8F0; align-items: center;">
+        <div style="font-weight: 700;">Mac Mini M2 mất điện/khởi động lại</div>
+        <div><span class="badge" style="background: #DCFCE7; color: #166534;">Thấp</span></div>
+        <div><span class="badge" style="background: #FEF3C7; color: #92400E;">Trung bình</span></div>
+        <div style="color: var(--muted);">PM2 startup đảm bảo Gateway tự bật sau reboot. Persistent Memory trên SSD không mất data.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 3fr; padding: 14px 20px; font-size: 12px; gap: 16px; align-items: center; background: #F8FAFC;">
+        <div style="font-weight: 700;">CVR thấp hơn dự kiến (dưới 2%)</div>
+        <div><span class="badge" style="background: #DCFCE7; color: #166534;">Thấp</span></div>
+        <div><span class="badge" style="background: #FEE2E2; color: #991B1B;">Cao</span></div>
+        <div style="color: var(--muted);">Kích hoạt Self-Evolution sớm hơn. A/B test Landing Page bằng S4. Tăng ngân sách inference S8.</div>
+      </div>
+    </div>
+
+    <!-- Footer signature -->
+    <div style="margin-top: 48px; background: var(--dark); border-radius: 24px; padding: 40px; text-align: center; color: white;">
+      <div style="font-size: 40px; margin-bottom: 12px;">🦞</div>
+      <div style="font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 8px;">Molty <span style="color: var(--lobster);">Master Strategy</span> v1.0</div>
+      <div style="font-size: 13px; color: #64748B; margin-bottom: 8px;">Tổng hợp từ 6 tài liệu chiến lược — Triển khai A-Z</div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--lobster); font-weight: 700; margin-bottom: 20px;">🌐 moltyflywheel.com · admin@moltyflywheel.com · @MoltyFlywheel</div>
+      <div style="font-family: 'JetBrains Mono', monospace; background: #0D1117; border-radius: 12px; padding: 14px 24px; display: inline-block; font-size: 13px; color: #56D364;">
+        curl -fsSL https://openclaw.ai/install.sh | bash
+      </div>
+      <div style="margin-top: 24px; font-size: 10px; font-weight: 700; color: #334155; text-transform: uppercase; letter-spacing: 0.15em;">Lobster-light. Agent-right. © 2026 Molty Core 🦞</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /main -->
+
+<script>
+// ─── Sidebar active state ───
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('section[id]');
+function updateActive() {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY + 100 >= s.offsetTop) current = s.id; });
+  navItems.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActive);
+navItems.forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  const target = document.querySelector(a.getAttribute('href'));
+  if (target) target.scrollIntoView({ behavior: 'smooth' });
+}));
+
+// ─── KPI Slider ───
+const slider = document.getElementById('weekSlider');
+function updateKPI(week) {
+  const w = parseInt(week);
+  const t = Math.round(w / 12 * 10000);
+  const u = Math.round(t * 0.02);
+  const roi = Math.round(u * 20 * 0.953 - 50);
+  const netRoi = Math.max(0, roi);
+  document.getElementById('kpi-week').textContent = w;
+  document.getElementById('kpi-traffic').textContent = t.toLocaleString();
+  document.getElementById('kpi-users').textContent = u;
+  document.getElementById('kpi-roi').textContent = '$' + netRoi.toLocaleString();
+  document.getElementById('pb-week').style.width = (w/12*100) + '%';
+  document.getElementById('pb-traffic').style.width = (t/10000*100) + '%';
+  document.getElementById('pb-users').style.width = (u/200*100) + '%';
+  document.getElementById('pb-roi').style.width = Math.min(100, netRoi/3810*100) + '%';
+}
+slider.addEventListener('input', e => updateKPI(e.target.value));
+
+// ─── Charts ───
+window.addEventListener('load', () => {
+  updateKPI(1);
+
+  // Projection Chart
+  new Chart(document.getElementById('projectionChart'), {
+    type: 'bar',
+    data: {
+      labels: ['T1 (W1-4)', 'T2 (W5-8)', 'T3 (W9-12)'],
+      datasets: [
+        { label: 'Clicks', data: [1000, 6000, 10000], backgroundColor: 'rgba(99,102,241,0.7)', yAxisID: 'y' },
+        { label: 'Net ROI ($)', data: [381, 2286, 3810], backgroundColor: 'rgba(16,185,129,0.7)', yAxisID: 'y1' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { font: { weight: 'bold', size: 11 } } } },
+      scales: {
+        y: { position: 'left', title: { display: true, text: 'Clicks', font: { size: 10 } } },
+        y1: { position: 'right', title: { display: true, text: 'USD ($)', font: { size: 10 } }, grid: { drawOnChartArea: false } }
+      }
+    }
+  });
+
+  // ROI Chart
+  new Chart(document.getElementById('roiChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Net ROI ($3,810)', 'Phí Affitor ($140)', 'API Budget ($50)'],
+      datasets: [{ data: [3810, 140, 50], backgroundColor: ['#10B981','#F43F5E','#6366F1'], borderWidth: 0, hoverOffset: 10 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '70%',
+      plugins: { legend: { position: 'bottom', labels: { font: { weight: 'bold', size: 11 } } } }
+    }
+  });
+
+  // Evolution Chart
+  new Chart(document.getElementById('evolutionChart'), {
+    type: 'line',
+    data: {
+      labels: ['Gen 1', 'Gen 2', 'Gen 3', 'Gen 4', 'Gen 5'],
+      datasets: [
+        { label: 'Manual Affiliate', data: [0.5, 0.45, 0.4, 0.35, 0.32], borderColor: '#64748B', borderDash: [5,5], backgroundColor: 'transparent', tension: 0.2 },
+        { label: 'Molty Evolution', data: [0.5, 0.9, 1.8, 3.2, 5.5], borderColor: '#FF5733', backgroundColor: 'rgba(255,87,51,0.15)', fill: true, tension: 0.4, borderWidth: 3, pointBackgroundColor: '#FF5733', pointRadius: 5 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748B', font: { size: 10 } }, title: { display: true, text: 'EPC ($)', color: '#64748B', font: { size: 10, weight: 'bold' } } },
+        x: { grid: { display: false }, ticks: { color: '#64748B', font: { size: 10, weight: 'bold' } } }
+      }
+    }
+  });
+
+  // Content Ratio Chart
+  new Chart(document.getElementById('contentChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Educational (40%)', 'Tech Setup (30%)', 'Conversion (30%)'],
+      datasets: [{ data: [40,30,30], backgroundColor: ['#6366F1','#D97706','#10B981'], borderWidth: 0, hoverOffset: 10 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      plugins: { legend: { position: 'bottom', labels: { font: { weight: 'bold', size: 11 }, boxWidth: 12 } } }
+    }
+  });
+});
+</script>
 </body>
 </html>
