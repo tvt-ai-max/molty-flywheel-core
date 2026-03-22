@@ -15,12 +15,12 @@
                 extend: {
                     colors: {
                         cream: '#FFFDF9',
-                        'win-yellow': '#FFDE85',
-                        'win-blue': '#2B59C3',
-                        'soft-blue': '#A5CCFF',
-                        'barrel-orange': '#FF8E4F',
-                        'barrel-green': '#76C893',
-                        'text-dark': '#4A4E69',
+                        'win-yellow': '#F3E5AB',
+                        'win-bronze': '#9D6B2D', // Màu nâu đồng từ logo
+                        'win-sand': '#E8D5B7',
+                        'barrel-orange': '#D97706',
+                        'barrel-green': '#6B705C',
+                        'text-dark': '#4A3620', // Màu chữ nâu đậm
                     },
                     fontFamily: {
                         sans: ['Quicksand', 'sans-serif'],
@@ -34,7 +34,7 @@
     <style>
         body {
             background-color: #FFFDF9;
-            color: #4A4E69;
+            color: #4A3620;
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
         }
@@ -48,14 +48,14 @@
         .soft-card {
             background: white;
             border-radius: 1.5rem;
-            border: 1px solid rgba(74, 78, 105, 0.08);
+            border: 1px solid rgba(157, 107, 45, 0.1);
             transition: all 0.5s ease;
         }
 
         /* Hover nhẹ nhàng */
         .gentle-hover:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(42, 89, 195, 0.12);
+            box-shadow: 0 12px 24px -10px rgba(157, 107, 45, 0.15);
         }
 
         /* Nút bấm trầm mặc */
@@ -86,7 +86,7 @@
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #FFFDF9; }
-        ::-webkit-scrollbar-thumb { background: #FFDE85; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #9D6B2D; border-radius: 10px; }
 
         /* Storyboard Arrow */
         .draw-path {
@@ -101,48 +101,51 @@
 
     <!-- Header / Nav -->
     <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl">
-        <div class="bg-white/70 backdrop-blur-lg border border-text-dark/10 p-2 rounded-full shadow-sm flex justify-around items-center px-6">
-            <a href="#problem" class="text-xs font-bold text-text-dark hover:text-win-blue transition-colors">Vấn Đề</a>
-            <div class="h-4 w-px bg-text-dark/10"></div>
-            <a href="#map" class="text-xs font-bold text-text-dark hover:text-win-blue transition-colors">Dòng Chảy</a>
-            <div class="h-4 w-px bg-text-dark/10"></div>
-            <a href="#staff" class="text-xs font-bold text-text-dark hover:text-win-blue transition-colors">Nhân Viên</a>
-            <a href="#checklist" class="bg-win-blue text-white text-[10px] px-4 py-2 rounded-full font-bold">TRIỂN KHAI</a>
+        <div class="bg-white/70 backdrop-blur-lg border border-win-bronze/10 p-2 rounded-full shadow-sm flex justify-around items-center px-6">
+            <a href="#problem" class="text-xs font-bold text-text-dark hover:text-win-bronze transition-colors">Vấn Đề</a>
+            <div class="h-4 w-px bg-win-bronze/10"></div>
+            <a href="#map" class="text-xs font-bold text-text-dark hover:text-win-bronze transition-colors">Dòng Chảy</a>
+            <div class="h-4 w-px bg-win-bronze/10"></div>
+            <a href="#staff" class="text-xs font-bold text-text-dark hover:text-win-bronze transition-colors">Nhân Viên</a>
+            <a href="#checklist" class="bg-win-bronze text-white text-[10px] px-4 py-2 rounded-full font-bold">TRIỂN KHAI</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center items-center px-6 relative">
-        <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-            <svg viewBox="0 0 1000 1000" class="w-full h-full text-win-blue">
+        <div class="absolute inset-0 pointer-events-none opacity-10 overflow-hidden">
+            <svg viewBox="0 0 1000 1000" class="w-full h-full text-win-bronze">
                 <circle cx="900" cy="100" r="150" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                <!-- Lighthouse Sketch -->
+                <path d="M480,400 L520,400 L510,200 L490,200 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+                <circle cx="500" cy="180" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
                 <path d="M100,800 Q400,750 900,800" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="5 5"/>
             </svg>
         </div>
 
         <div class="text-center z-10 max-w-4xl">
-            <span class="text-[10px] font-bold tracking-[0.3em] text-win-blue uppercase mb-8 block reveal">Win House / Entrance Micro-Funnel</span>
+            <span class="text-[10px] font-bold text-win-bronze tracking-[0.4em] uppercase mb-8 block reveal">Win House / Entrance Micro-Funnel</span>
             <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 reveal text-text-dark">
                 Có những người chỉ đi ngang. <br>
-                <span class="text-win-blue/80 italic font-normal">Câu hỏi là: mình giữ họ lại được bao lâu?</span>
+                <span class="text-win-bronze italic font-normal">Câu hỏi là: mình giữ họ lại được bao lâu?</span>
             </h1>
             <p class="text-xl md:text-2xl font-hand text-text-dark/60 mb-12 reveal" style="transition-delay: 200ms;">
                 Không bán nhanh hơn. Chỉ tạo một nhịp dừng.
             </p>
             
             <div class="flex flex-wrap gap-4 justify-center items-center reveal" style="transition-delay: 400ms;">
-                <a href="#map" class="quiet-button bg-win-blue text-white shadow-lg hover:shadow-win-blue/20">Xem dòng di chuyển</a>
-                <a href="#posters" class="quiet-button border border-win-blue text-win-blue hover:bg-win-blue/5">Cách đặt ngoài cửa</a>
+                <a href="#map" class="quiet-button bg-win-bronze text-white shadow-lg hover:shadow-win-bronze/20">Xem dòng di chuyển</a>
+                <a href="#posters" class="quiet-button border border-win-bronze text-win-bronze hover:bg-win-bronze/5">Cách đặt ngoài cửa</a>
             </div>
         </div>
 
         <!-- Sketch Illustration -->
-        <div class="mt-24 w-full max-w-2xl opacity-40 reveal" style="transition-delay: 600ms;">
+        <div class="mt-24 w-full max-w-2xl opacity-30 reveal" style="transition-delay: 600ms;">
             <svg viewBox="0 0 800 150" fill="none" stroke="currentColor" stroke-width="1.5" class="w-full text-text-dark">
                 <path d="M50,130 L750,130" stroke-dasharray="4 4"/>
                 <rect x="350" y="30" width="100" height="100" rx="4" />
                 <path d="M340,30 L460,30 L400,-10 Z" />
-                <!-- Subtle silhouettes -->
+                <!-- Silhouette silhouettes -->
                 <circle cx="150" cy="115" r="5" fill="currentColor"/>
                 <path d="M150,120 L150,130" />
             </svg>
@@ -156,21 +159,21 @@
             
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="reveal">
-                    <div class="w-10 h-10 mb-8 text-win-blue opacity-50">
+                    <div class="w-10 h-10 mb-8 text-win-bronze opacity-60">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
                     <h3 class="font-bold text-lg mb-4">Họ đang chạy đua</h3>
                     <p class="text-sm leading-relaxed text-text-dark/70">Vừa rời khỏi VinWonders, mệt mỏi và chỉ muốn lên xe ngay. Quyết định "vào quán" lúc này là quá nặng nề.</p>
                 </div>
                 <div class="reveal" style="transition-delay: 150ms;">
-                    <div class="w-10 h-10 mb-8 text-win-blue opacity-50">
+                    <div class="w-10 h-10 mb-8 text-win-bronze opacity-60">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8m-4-4v8"/></svg>
                     </div>
                     <h3 class="font-bold text-lg mb-4">Kiến trúc tạo khoảng cách</h3>
                     <p class="text-sm leading-relaxed text-text-dark/70">Lâu đài đôi khi gợi cảm giác "nghiêm túc". Họ sợ mất thời gian, sợ bị phục vụ ngay khi vừa bước chân qua cửa.</p>
                 </div>
                 <div class="reveal" style="transition-delay: 300ms;">
-                    <div class="w-10 h-10 mb-8 text-win-blue opacity-50">
+                    <div class="w-10 h-10 mb-8 text-win-bronze opacity-60">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                     </div>
                     <h3 class="font-bold text-lg mb-4">Thiếu một nhịp nghỉ</h3>
@@ -181,7 +184,7 @@
     </section>
 
     <!-- Micro-Funnel Map -->
-    <section id="map" class="py-32 px-6 bg-text-dark/[0.02] border-y border-text-dark/5">
+    <section id="map" class="py-32 px-6 bg-win-bronze/[0.03] border-y border-win-bronze/10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-24">
                 <h2 class="text-3xl font-bold text-text-dark mb-4 reveal">Entrance Micro-Funnel Map</h2>
@@ -190,29 +193,29 @@
 
             <div class="grid lg:grid-cols-5 gap-6">
                 <!-- Zone 1 -->
-                <div onclick="toggleZone(1)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-win-blue/30">
-                    <span class="text-[10px] font-bold text-win-blue tracking-widest uppercase mb-4 block">01 / Đọc trong 1 giây</span>
+                <div onclick="toggleZone(1)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-win-bronze/40">
+                    <span class="text-[10px] font-bold text-win-bronze tracking-widest uppercase mb-4 block">01 / Đọc trong 1 giây</span>
                     <h4 class="font-bold text-text-dark mb-6 text-xl">Scan Zone</h4>
                     <p class="text-xs text-text-dark/60 leading-relaxed mb-6">Poster treo hàng rào hoặc đặt giá đứng cách cổng 3-5m.</p>
-                    <div id="detail-1" class="hidden text-[11px] bg-win-blue/5 p-4 rounded-xl border border-win-blue/10">
+                    <div id="detail-1" class="hidden text-[11px] bg-win-bronze/5 p-4 rounded-xl border border-win-bronze/10">
                         <p class="font-bold mb-1">Mục tiêu:</p>
                         Khách chỉ cần đọc được câu hỏi.
                     </div>
                 </div>
 
                 <!-- Zone 2 -->
-                <div onclick="toggleZone(2)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-win-yellow/30">
-                    <span class="text-[10px] font-bold text-win-yellow tracking-widest uppercase mb-4 block">02 / Chậm lại</span>
+                <div onclick="toggleZone(2)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-win-yellow/60">
+                    <span class="text-[10px] font-bold text-win-bronze tracking-widest uppercase mb-4 block">02 / Chậm lại</span>
                     <h4 class="font-bold text-text-dark mb-6 text-xl">Slow Zone</h4>
                     <p class="text-xs text-text-dark/60 leading-relaxed mb-6">Sát lối vào. Bắt đầu có sự xuất hiện của các thùng phi màu.</p>
-                    <div id="detail-2" class="hidden text-[11px] bg-win-yellow/5 p-4 rounded-xl border border-win-yellow/10">
+                    <div id="detail-2" class="hidden text-[11px] bg-win-yellow/10 p-4 rounded-xl border border-win-yellow/20">
                         <p class="font-bold mb-1">Mục tiêu:</p>
                         Bắt đầu có lý do để dừng quan sát.
                     </div>
                 </div>
 
                 <!-- Zone 3 -->
-                <div onclick="toggleZone(3)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-barrel-orange/30">
+                <div onclick="toggleZone(3)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-barrel-orange/40">
                     <span class="text-[10px] font-bold text-barrel-orange tracking-widest uppercase mb-4 block">03 / Ngồi xuống</span>
                     <h4 class="font-bold text-text-dark mb-6 text-xl">Pause Zone</h4>
                     <p class="text-xs text-text-dark/60 leading-relaxed mb-6">Cụm thùng phi đặt tự nhiên trước cửa. Đã có thể ngồi xuống.</p>
@@ -223,7 +226,7 @@
                 </div>
 
                 <!-- Zone 4 -->
-                <div onclick="toggleZone(4)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-barrel-green/30">
+                <div onclick="toggleZone(4)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-barrel-green/40">
                     <span class="text-[10px] font-bold text-barrel-green tracking-widest uppercase mb-4 block">04 / 60 giây đầu</span>
                     <h4 class="font-bold text-text-dark mb-6 text-xl">Micro Experience</h4>
                     <p class="text-xs text-text-dark/60 leading-relaxed mb-6">Khoảnh khắc nghỉ chân. Nhân viên mỉm cười, chưa bán hàng.</p>
@@ -234,11 +237,11 @@
                 </div>
 
                 <!-- Zone 5 -->
-                <div onclick="toggleZone(5)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-win-blue/30">
-                    <span class="text-[10px] font-bold text-win-blue tracking-widest uppercase mb-4 block">05 / Ở lại thêm</span>
+                <div onclick="toggleZone(5)" class="zone-card soft-card p-8 gentle-hover border-t-4 border-win-bronze/40">
+                    <span class="text-[10px] font-bold text-win-bronze tracking-widest uppercase mb-4 block">05 / Ở lại thêm</span>
                     <h4 class="font-bold text-text-dark mb-6 text-xl">Stay</h4>
                     <p class="text-xs text-text-dark/60 leading-relaxed mb-6">Tự nảy sinh nhu cầu gọi nước hoặc hỏi về phòng nghỉ.</p>
-                    <div id="detail-5" class="hidden text-[11px] bg-win-blue/5 p-4 rounded-xl border border-win-blue/10">
+                    <div id="detail-5" class="hidden text-[11px] bg-win-bronze/5 p-4 rounded-xl border border-win-bronze/10">
                         <p class="font-bold mb-1">Mục tiêu:</p>
                         Từ đây mới bắt đầu có thời gian thực sự.
                     </div>
@@ -251,55 +254,55 @@
     <section id="posters" class="py-32 px-6 overflow-hidden">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
             <div class="reveal">
-                <span class="text-[10px] font-bold text-win-blue tracking-[0.2em] uppercase mb-6 block">Visual Artifacts</span>
-                <h2 class="text-4xl font-bold text-text-dark mb-10 leading-snug">Hệ thống Poster <br><span class="font-hand text-text-dark/50 text-3xl">Lặng lẽ và tinh tế.</span></h2>
+                <span class="text-[10px] font-bold text-win-bronze tracking-[0.2em] uppercase mb-6 block">Visual Artifacts</span>
+                <h2 class="text-4xl font-bold text-text-dark mb-10 leading-snug">Hệ thống Poster <br><span class="font-hand text-win-bronze text-3xl">Lặng lẽ và tinh tế.</span></h2>
                 <p class="text-sm text-text-dark/70 leading-relaxed mb-12 max-w-md">Không logo, không giá tiền, không thực đơn. Những bức tranh này chỉ đóng vai trò là một người bạn hỏi thăm khách khi họ đang vội.</p>
                 
                 <div class="space-y-6">
                     <div class="flex items-center gap-6 group">
                         <div class="w-1 h-1 bg-win-yellow group-hover:h-8 transition-all duration-500"></div>
-                        <span class="font-bold text-text-dark/80 group-hover:text-win-blue transition-colors">"Bạn còn 2 phút trước khi lên xe không?"</span>
+                        <span class="font-bold text-text-dark/80 group-hover:text-win-bronze transition-colors">"Bạn còn 2 phút trước khi lên xe không?"</span>
                     </div>
                     <div class="flex items-center gap-6 group">
-                        <div class="w-1 h-1 bg-win-blue group-hover:h-8 transition-all duration-500"></div>
-                        <span class="font-bold text-text-dark/80 group-hover:text-win-blue transition-colors">"Không cần vào quán. Nghỉ một chút ở đây thôi."</span>
+                        <div class="w-1 h-1 bg-win-bronze group-hover:h-8 transition-all duration-500"></div>
+                        <span class="font-bold text-text-dark/80 group-hover:text-win-bronze transition-colors">"Không cần vào quán. Nghỉ một chút ở đây thôi."</span>
                     </div>
                     <div class="flex items-center gap-6 group">
                         <div class="w-1 h-1 bg-barrel-orange group-hover:h-8 transition-all duration-500"></div>
-                        <span class="font-bold text-text-dark/80 group-hover:text-win-blue transition-colors">"Nếu bạn đang vội, chỗ này dành cho bạn."</span>
+                        <span class="font-bold text-text-dark/80 group-hover:text-win-bronze transition-colors">"Nếu bạn đang vội, chỗ này dành cho bạn."</span>
                     </div>
                 </div>
             </div>
 
             <div class="relative reveal" style="transition-delay: 200ms;">
-                <div class="bg-text-dark/5 p-12 rounded-3xl relative">
+                <div class="bg-win-bronze/5 p-12 rounded-3xl relative">
                     <!-- Mockup Poster -->
-                    <div class="bg-white aspect-[3/4] rounded-sm shadow-2xl p-12 flex flex-col justify-center items-center text-center border border-text-dark/10">
-                        <p class="text-4xl font-bold text-text-dark mb-8">Bạn còn <br><span class="text-win-blue text-5xl">2 PHÚT</span> <br>trước khi lên xe không?</p>
-                        <div class="w-12 h-px bg-text-dark/20 my-8"></div>
+                    <div class="bg-white aspect-[3/4] rounded-sm shadow-2xl p-12 flex flex-col justify-center items-center text-center border border-win-bronze/10">
+                        <p class="text-4xl font-bold text-text-dark mb-8">Bạn còn <br><span class="text-win-bronze text-5xl">2 PHÚT</span> <br>trước khi lên xe không?</p>
+                        <div class="w-12 h-px bg-win-bronze/20 my-8"></div>
                         <p class="text-[10px] text-text-dark/40 uppercase tracking-widest">Win House / Phú Quốc</p>
                     </div>
                     <!-- Decor element -->
-                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-barrel-orange/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-win-bronze/10 rounded-full blur-2xl"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Staff Script Storyboard -->
-    <section id="staff" class="py-32 px-6 bg-white border-y border-text-dark/5">
+    <section id="staff" class="py-32 px-6 bg-white border-y border-win-bronze/10">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-text-dark mb-24 reveal">2 câu nhân viên cần nhớ</h2>
             
             <div class="grid md:grid-cols-2 gap-12 mb-20">
                 <div class="soft-card p-10 reveal">
                     <span class="text-3xl mb-8 block">🧘‍♂️</span>
-                    <h4 class="font-bold text-win-blue mb-4">Trước hết: Giữ im lặng</h4>
+                    <h4 class="font-bold text-win-bronze mb-4">Trước hết: Giữ im lặng</h4>
                     <p class="text-sm text-text-dark/60 leading-relaxed mb-8">Khi khách đi ngang hoặc đang đọc poster, nhân viên chỉ cần mỉm cười nhẹ. Chưa cần tiến lại gần làm gián đoạn nhịp nghỉ của họ.</p>
                 </div>
-                <div class="soft-card p-10 reveal shadow-xl border-win-blue/10" style="transition-delay: 200ms;">
+                <div class="soft-card p-10 reveal shadow-xl border-win-bronze/10" style="transition-delay: 200ms;">
                     <span class="text-3xl mb-8 block">💬</span>
-                    <h4 class="font-bold text-win-blue mb-4">Chỉ nói khi khách đã ngồi xuống</h4>
+                    <h4 class="font-bold text-win-bronze mb-4">Chỉ nói khi khách đã ngồi xuống</h4>
                     <div class="space-y-4">
                         <p class="text-lg font-bold text-text-dark italic">"Bạn có thể ngồi ngoài trước cũng được."</p>
                         <p class="text-sm text-text-dark/40">Sau đó 60 giây:</p>
@@ -309,9 +312,9 @@
             </div>
 
             <!-- Anti-Win House Warning -->
-            <div class="p-12 rounded-3xl bg-red-50/30 border border-red-100 reveal">
-                <h5 class="text-[10px] font-bold text-red-400 uppercase tracking-widest mb-10 text-center">Tránh tuyệt đối (Không phải Win House)</h5>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-[11px] text-red-500/60 font-bold italic text-center">
+            <div class="p-12 rounded-3xl bg-red-50/20 border border-red-100 reveal">
+                <h5 class="text-[10px] font-bold text-red-500/60 uppercase tracking-widest mb-10 text-center">Tránh tuyệt đối (Không phải Win House)</h5>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-[11px] text-red-600/40 font-bold italic text-center">
                     <div>"Anh/chị dùng gì ạ?"</div>
                     <div>"Quán em đang khuyến mãi..."</div>
                     <div>"Mời anh/chị vào trong"</div>
@@ -324,16 +327,16 @@
     <!-- Room Philosophy -->
     <section class="py-40 px-6 bg-text-dark text-white text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 pointer-events-none">
-            <svg viewBox="0 0 100 100" class="w-full h-full"><circle cx="50" cy="50" r="40" stroke="currentColor" fill="none"/></svg>
+            <svg viewBox="0 0 100 100" class="w-full h-full text-win-bronze"><circle cx="50" cy="50" r="40" stroke="currentColor" fill="none"/></svg>
         </div>
         
         <div class="max-w-4xl mx-auto relative z-10">
-            <h2 class="text-3xl font-bold mb-12 reveal font-hand opacity-90 italic">“Có những ngày, về phòng không phải để ngủ. Chỉ để yên.”</h2>
+            <h2 class="text-3xl font-bold mb-12 reveal font-hand text-win-yellow opacity-90 italic">“Có những ngày, về phòng không phải để ngủ. Chỉ để yên.”</h2>
             <div class="grid gap-6 text-sm text-white/50 reveal" style="transition-delay: 200ms;">
                 <p>Phòng không phải là hook đầu tiên của chúng ta.</p>
                 <p>Chỉ khi khách ngồi lại đủ lâu và bắt đầu hỏi về không gian, câu chuyện mới đi tiếp.</p>
                 <div class="h-px w-12 bg-white/20 mx-auto my-8"></div>
-                <p class="text-white text-base tracking-widest font-bold">Ở LẠI TRƯỚC. BÁN SAU.</p>
+                <p class="text-white text-base tracking-widest font-bold uppercase">Ở lại trước. Bán sau.</p>
             </div>
         </div>
     </section>
@@ -345,11 +348,11 @@
             
             <div class="grid gap-4">
                 <div class="soft-card p-6 flex items-center gap-6 reveal">
-                    <div class="w-2 h-2 rounded-full bg-win-blue"></div>
+                    <div class="w-2 h-2 rounded-full bg-win-bronze"></div>
                     <span class="text-sm font-medium">In 3 poster để test vị trí hàng rào và lối đi</span>
                 </div>
                 <div class="soft-card p-6 flex items-center gap-6 reveal" style="transition-delay: 100ms;">
-                    <div class="w-2 h-2 rounded-full bg-win-yellow"></div>
+                    <div class="w-2 h-2 rounded-full bg-win-yellow border border-win-bronze/20"></div>
                     <span class="text-sm font-medium">Đặt 2–3 cụm thùng phi theo cảm giác có thể ngồi thật (không quá ngay ngắn)</span>
                 </div>
                 <div class="soft-card p-6 flex items-center gap-6 reveal" style="transition-delay: 200ms;">
@@ -366,10 +369,10 @@
 
     <!-- Footer -->
     <footer class="py-32 text-center px-6 border-t border-text-dark/5">
-        <p class="text-xl font-bold text-text-dark mb-6 reveal">Win House / Entrance Micro-Funnel</p>
+        <p class="text-xl font-bold text-win-bronze mb-6 reveal uppercase tracking-widest">Win House / Entrance Micro-Funnel</p>
         <p class="text-sm text-text-dark/50 italic reveal max-w-lg mx-auto">“Khách không cần thêm một ưu đãi. Họ chỉ cần một lý do để chậm lại.”</p>
-        <div class="mt-16 h-px w-20 bg-text-dark/10 mx-auto"></div>
-        <p class="mt-8 text-[10px] text-text-dark/30 tracking-[0.5em] uppercase">Handcrafted for Win House Team</p>
+        <div class="mt-16 h-px w-20 bg-win-bronze/20 mx-auto"></div>
+        <p class="mt-8 text-[10px] text-text-dark/30 tracking-[0.5em] uppercase">Handcrafted based on Win House Branding</p>
     </footer>
 
     <script>
