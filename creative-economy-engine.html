@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Deck | Creative Economy Engine</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#1e293b',
+                            accent1: '#8b5cf6', // Violet
+                            accent2: '#3b82f6', // Blue
+                            accent3: '#10b981', // Emerald
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'hero-pattern': "url('https://www.transparenttextures.com/patterns/cubes.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Animations */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Scroll Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-200 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-panel border-b-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 font-display font-bold text-2xl tracking-tighter">
+                    <span class="text-white">GEN</span><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent1 to-brand-accent2">Z</span>
+                    <span class="text-sm font-sans font-normal text-slate-400 ml-2">Engine</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#opportunity" class="hover:text-white transition-colors">Cơ Hội</a>
+                        <a href="#engine" class="hover:text-white transition-colors">Mô Hình</a>
+                        <a href="#tech" class="hover:text-white transition-colors">Công Nghệ</a>
+                        <a href="#finance" class="hover:text-white transition-colors">Tài Chính</a>
+                        <a href="#roadmap" class="hover:text-white transition-colors">Lộ Trình</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#contact" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-accent1 to-brand-accent2 text-white font-semibold hover:shadow-lg hover:shadow-brand-accent1/30 transition-all">Đầu Tư Ngay</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
+        <!-- Background Effects -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-hero-pattern opacity-10 pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-accent1 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-accent2 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-brand-accent1/50 bg-brand-accent1/10 text-brand-accent1 text-sm font-semibold tracking-wide backdrop-blur-sm reveal">
+                GIAI ĐOẠN 2025 - 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight reveal delay-100">
+                Bộ Máy Kinh Tế Sáng Tạo <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent1 via-brand-accent2 to-brand-accent3">
+                    Play - Create - Earn
+                </span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 reveal delay-200">
+                Định hình lại tương lai tài chính của thế hệ Gen Z tại Việt Nam & Đông Nam Á thông qua sự giao thoa của <strong>AI Tạo sinh</strong>, <strong>Hạ tầng No-code</strong> và <strong>Kinh tế Sở hữu Web3</strong>.
+            </p>
+            <div class="mt-10 flex justify-center gap-4 reveal delay-300">
+                <a href="#finance" class="px-8 py-4 rounded-full bg-white text-brand-dark font-bold hover:bg-slate-200 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line"></i> Xem Báo Cáo Tài Chính
+                </a>
+                <a href="#engine" class="px-8 py-4 rounded-full glass-panel text-white font-semibold hover:bg-slate-800 transition-colors flex items-center gap-2">
+                    Khám Phá Mô Hình <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity Section -->
+    <section id="opportunity" class="py-20 bg-brand-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Tại Sao Là Ngay Bây Giờ?</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Thị trường đang đứng trước một điểm uốn lịch sử. Lòng trung thành đang dịch chuyển thành tài sản tài chính.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-t-brand-accent2 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="w-14 h-14 bg-brand-accent2/20 rounded-xl flex items-center justify-center text-brand-accent2 text-2xl mb-6">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-white mb-2">$25-28 Tỷ</h3>
+                    <p class="text-lg font-semibold text-brand-accent2 mb-4">Quy mô TMĐT Việt Nam 2025</p>
+                    <p class="text-slate-400 text-sm">Social Commerce thống trị. Riêng TikTok Shop đã chiếm <strong>41% - 42%</strong> thị phần. Hành vi mua sắm của Gen Z hoàn toàn xoay quanh Content-Commerce.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-t-brand-accent1 hover:-translate-y-2 transition-transform duration-300 reveal delay-100">
+                    <div class="w-14 h-14 bg-brand-accent1/20 rounded-xl flex items-center justify-center text-brand-accent1 text-2xl mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-white mb-2">300M+ Giờ</h3>
+                    <p class="text-lg font-semibold text-brand-accent1 mb-4">Sử dụng AI tại VN (Nửa đầu 2025)</p>
+                    <p class="text-slate-400 text-sm">Sự bùng nổ của AI tạo sinh giúp phá bỏ rào cản kỹ năng, chuyển từ "học phần mềm" sang "tư duy ra lệnh" (Prompt Engineering).</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl border-t-4 border-t-brand-accent3 hover:-translate-y-2 transition-transform duration-300 reveal delay-200">
+                    <div class="w-14 h-14 bg-brand-accent3/20 rounded-xl flex items-center justify-center text-brand-accent3 text-2xl mb-6">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-white mb-2">DAO Brands</h3>
+                    <p class="text-lg font-semibold text-brand-accent3 mb-4">Kỳ vọng sở hữu của Gen Z</p>
+                    <p class="text-slate-400 text-sm">Gen Z muốn chuyển từ "khách hàng" sang "cổ đông cộng đồng". Sẵn sàng chi trả cho các Cộng đồng đặc quyền số (Token-gated).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Engine Section -->
+    <section id="engine" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">3 Trụ Cột Của "Creative Engine"</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Xóa nhòa ranh giới giữa Giải trí, Giáo dục và Thương mại. Bánh đà tăng trưởng liên tục tái đầu tư.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-1 bg-gradient-to-r from-brand-accent2 via-brand-accent1 to-brand-accent3 -translate-y-1/2 z-0 opacity-30"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+                    <!-- Step 1 -->
+                    <div class="bg-brand-dark p-8 rounded-3xl border border-slate-700 shadow-2xl relative reveal text-center">
+                        <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-brand-accent2 flex items-center justify-center text-2xl text-white font-bold shadow-[0_0_30px_rgba(59,130,246,0.5)]">1</div>
+                        <h3 class="text-2xl font-display font-bold text-white mt-8 mb-4">PLAY</h3>
+                        <h4 class="text-brand-accent2 font-semibold mb-4">Trải nghiệm & Thẩm thấu</h4>
+                        <ul class="text-left text-slate-400 space-y-3 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-accent2 mr-2"></i>Không chỉ giải trí, là thu thập Input.</li>
+                            <li><i class="fa-solid fa-check text-brand-accent2 mr-2"></i>Play-to-Learn & Play-to-Socialize (Roblox, TikTok).</li>
+                            <li><i class="fa-solid fa-check text-brand-accent2 mr-2"></i>Tìm kiếm Niche và tích lũy dữ liệu Insight.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-brand-dark p-8 rounded-3xl border border-slate-700 shadow-2xl relative reveal delay-100 text-center">
+                        <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-brand-accent1 flex items-center justify-center text-2xl text-white font-bold shadow-[0_0_30px_rgba(139,92,246,0.5)]">2</div>
+                        <h3 class="text-2xl font-display font-bold text-white mt-8 mb-4">CREATE</h3>
+                        <h4 class="text-brand-accent1 font-semibold mb-4">Sáng tạo & Tài sản hóa</h4>
+                        <ul class="text-left text-slate-400 space-y-3 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-accent1 mr-2"></i>Dân chủ hóa sáng tạo nhờ AI.</li>
+                            <li><i class="fa-solid fa-check text-brand-accent1 mr-2"></i>Tự động hóa quy trình với No-code & AI Agents.</li>
+                            <li><i class="fa-solid fa-check text-brand-accent1 mr-2"></i>Đóng gói Insight thành sản phẩm số/khóa học.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-brand-dark p-8 rounded-3xl border border-slate-700 shadow-2xl relative reveal delay-200 text-center">
+                        <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-brand-accent3 flex items-center justify-center text-2xl text-white font-bold shadow-[0_0_30px_rgba(16,185,129,0.5)]">3</div>
+                        <h3 class="text-2xl font-display font-bold text-white mt-8 mb-4">EARN</h3>
+                        <h4 class="text-brand-accent3 font-semibold mb-4">Kinh tế Sở hữu (Ownership)</h4>
+                        <ul class="text-left text-slate-400 space-y-3 text-sm">
+                            <li><i class="fa-solid fa-check text-brand-accent3 mr-2"></i>Vốn hóa "lòng trung thành" qua Web3.</li>
+                            <li><i class="fa-solid fa-check text-brand-accent3 mr-2"></i>Social Commerce & Affiliate 2.0.</li>
+                            <li><i class="fa-solid fa-check text-brand-accent3 mr-2"></i>Cộng đồng đặc quyền (Token-gated) & DAO.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack / The Moat -->
+    <section id="tech" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2 reveal">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-6">Hạ Tầng Công Nghệ <br><span class="text-brand-accent1">Bảo Vệ Biên Lợi Nhuận</span></h2>
+                    <p class="text-slate-400 mb-8">Chiến lược cốt lõi: Dịch chuyển "từ vốn lớn sang chi phí thấp" bằng đòn bẩy công nghệ đột phá.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-brand-accent2 shrink-0">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Hạ tầng No-code/Low-code</h4>
+                                <p class="text-slate-400 text-sm">Loại bỏ đầu tư vốn lớn (CapEx) vào lập trình từ đầu. Ngân sách thiết lập tối thiểu.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-brand-accent1 shrink-0">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Đặc vụ AI (AI Agents)</h4>
+                                <p class="text-slate-400 text-sm">Quản lý livestream 24/7, tự động hóa affiliate. Cắt giảm <strong>>40%</strong> OPEX và tăng tỷ lệ chuyển đổi <strong>20-30%</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-800 flex items-center justify-center text-brand-accent3 shrink-0">
+                                <i class="fa-solid fa-link"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Web3 & Blockchain Viction</h4>
+                                <p class="text-slate-400 text-sm">Hạ tầng L1 phí gas siêu thấp cho Đông Nam Á. Cung cấp On-chain Identity để bảo vệ bản quyền, triệt tiêu phí trung gian.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 reveal delay-200">
+                    <div class="glass-panel p-2 rounded-2xl relative">
+                        <!-- Placeholder for an architecture diagram or abstract tech visual -->
+                        <div class="bg-brand-dark rounded-xl p-8 aspect-square flex flex-col justify-between relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent1/20 rounded-full mix-blend-screen filter blur-[80px]"></div>
+                            
+                            <div class="z-10 bg-slate-800/80 p-4 rounded-lg border border-slate-700 mb-4 transform -rotate-2 hover:rotate-0 transition-all">
+                                <div class="text-xs text-brand-accent2 mb-1">Layer 1: Input</div>
+                                <div class="font-bold text-white">Social / Play Data</div>
+                            </div>
+                            
+                            <div class="z-10 bg-slate-800/80 p-4 rounded-lg border border-brand-accent1/50 shadow-[0_0_15px_rgba(139,92,246,0.3)] mb-4 ml-8">
+                                <div class="text-xs text-brand-accent1 mb-1">Layer 2: Processing (AI)</div>
+                                <div class="font-bold text-white">GenAI Content & Agent Sales</div>
+                            </div>
+                            
+                            <div class="z-10 bg-slate-800/80 p-4 rounded-lg border border-brand-accent3/50 shadow-[0_0_15px_rgba(16,185,129,0.3)] transform rotate-2 hover:rotate-0 transition-all ml-16">
+                                <div class="text-xs text-brand-accent3 mb-1">Layer 3: Monetization (Web3)</div>
+                                <div class="font-bold text-white">Viction DAO & On-chain Assets</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Strategy (CFO Perspective) -->
+    <section id="finance" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-accent3 font-bold tracking-wider text-sm uppercase">Phân Tích CFO</span>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mt-2">Đột Phá Tài Chính & Dòng Tiền</h2>
+                <p class="mt-4 text-slate-400 max-w-3xl mx-auto">Rào cản chi phí gia nhập cực thấp (AI/No-code) + Trần lợi nhuận rất cao (Web3/DAO).</p>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="glass-panel rounded-3xl overflow-hidden shadow-2xl reveal delay-100">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-800/50">
+                                <th class="p-6 text-slate-300 font-semibold w-1/4">Hạng Mục</th>
+                                <th class="p-6 text-slate-400 font-normal w-1/4 border-l border-slate-700">Truyền Thống (Creator 1.0)</th>
+                                <th class="p-6 text-brand-accent1 font-bold w-1/4 border-l border-slate-700 bg-brand-accent1/5">AI-Powered Engine (2026)</th>
+                                <th class="p-6 text-brand-accent3 font-bold w-1/4 border-l border-slate-700">Lợi Thế Tài Chính</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700/50">
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-6 font-medium text-white">Sản xuất Nội dung</td>
+                                <td class="p-6 text-slate-400 text-sm border-l border-slate-700">Cao (Thuê Studio, Editor)</td>
+                                <td class="p-6 text-white text-sm border-l border-slate-700 bg-brand-accent1/5">Thấp (GenAI, Prompt Eng.)</td>
+                                <td class="p-6 text-brand-accent3 font-bold border-l border-slate-700">Tiết kiệm > 40% OPEX</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-6 font-medium text-white">Vận hành Bán hàng</td>
+                                <td class="p-6 text-slate-400 text-sm border-l border-slate-700">Giới hạn giờ làm việc vật lý</td>
+                                <td class="p-6 text-white text-sm border-l border-slate-700 bg-brand-accent1/5">AI Agents auto 24/7</td>
+                                <td class="p-6 text-brand-accent3 font-bold border-l border-slate-700">Tăng chuyển đổi 20-30%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-6 font-medium text-white">Hạ tầng Kỹ thuật</td>
+                                <td class="p-6 text-slate-400 text-sm border-l border-slate-700">CapEx lớn (Code từ đầu)</td>
+                                <td class="p-6 text-white text-sm border-l border-slate-700 bg-brand-accent1/5">OpEx linh hoạt (No-code)</td>
+                                <td class="p-6 text-brand-accent3 font-bold border-l border-slate-700">Giảm rủi ro chôn vốn</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="p-6 font-medium text-white">Phí & Bản quyền</td>
+                                <td class="p-6 text-slate-400 text-sm border-l border-slate-700">Nền tảng "cắt phế" cao</td>
+                                <td class="p-6 text-white text-sm border-l border-slate-700 bg-brand-accent1/5">Web3 Viction phí gas thấp</td>
+                                <td class="p-6 text-brand-accent3 font-bold border-l border-slate-700">Tối đa hóa Biên Lợi Nhuận</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- KPIs -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-700 text-center reveal">
+                    <div class="text-3xl font-bold text-white mb-1">3-5%</div>
+                    <div class="text-sm text-slate-400">Fan-to-Buyer Conversion</div>
+                </div>
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-700 text-center reveal delay-100">
+                    <div class="text-3xl font-bold text-white mb-1">>15%</div>
+                    <div class="text-sm text-slate-400">Repeat Purchase Rate</div>
+                </div>
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-700 text-center reveal delay-200">
+                    <div class="text-3xl font-bold text-white mb-1">>40%</div>
+                    <div class="text-sm text-slate-400">AI-efficiency Gain</div>
+                </div>
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-700 text-center reveal delay-300">
+                    <div class="text-3xl font-bold text-white mb-1">>50%</div>
+                    <div class="text-sm text-slate-400">D1 Retention Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Roadmap -->
+    <section id="roadmap" class="py-20 bg-brand-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Master Roadmap (2025 - 2026)</h2>
+                <p class="mt-4 text-slate-400">Lộ trình 3 giai đoạn hướng tới Free Cash Flow bền vững.</p>
+            </div>
+
+            <div class="relative wrap overflow-hidden p-4 h-full">
+                <div class="border-2-2 absolute border-opacity-20 border-white h-full border left-1/2 hidden md:block"></div>
+                
+                <!-- Phase 0 -->
+                <div class="mb-12 flex justify-between items-center w-full flex-col md:flex-row right-timeline reveal">
+                    <div class="order-1 md:w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-brand-accent2 shadow-[0_0_15px_rgba(59,130,246,0.5)] w-12 h-12 rounded-full mb-4 md:mb-0">
+                        <h1 class="mx-auto font-semibold text-lg text-white">0</h1>
+                    </div>
+                    <div class="order-1 glass-panel rounded-2xl shadow-xl w-full md:w-5/12 px-6 py-6 border-l-4 border-brand-accent2">
+                        <h3 class="font-bold text-white text-xl mb-1">Tháng 1 - 3/2025: Setup & Grounding</h3>
+                        <p class="text-brand-accent2 text-sm font-semibold mb-3">Dòng tiền âm (Burn Rate cực thấp)</p>
+                        <ul class="text-sm leading-snug tracking-wide text-slate-400 space-y-2">
+                            <li>• Mục tiêu: Tìm Niche, đạt 1.000 True Fans.</li>
+                            <li>• Hành động: "Trải nghiệm & Thẩm thấu" trên TikTok/Roblox.</li>
+                            <li>• Công cụ: Ứng dụng AI bản địa (AI Hay) để thu thập Insight.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 1 -->
+                <div class="mb-12 flex justify-between items-center w-full flex-col md:flex-row-reverse left-timeline reveal delay-100">
+                    <div class="order-1 md:w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-brand-accent1 shadow-[0_0_15px_rgba(139,92,246,0.5)] w-12 h-12 rounded-full mb-4 md:mb-0">
+                        <h1 class="mx-auto text-white font-semibold text-lg">1</h1>
+                    </div>
+                    <div class="order-1 glass-panel rounded-2xl shadow-xl w-full md:w-5/12 px-6 py-6 border-r-4 border-brand-accent1 md:text-right">
+                        <h3 class="font-bold text-white text-xl mb-1">Tháng 4 - 12/2025: Launch & Content</h3>
+                        <p class="text-brand-accent1 text-sm font-semibold mb-3">Đạt Điểm Hòa Vốn (Break-even)</p>
+                        <ul class="text-sm leading-snug tracking-wide text-slate-400 space-y-2">
+                            <li>• Mục tiêu: MVC (Minimum Viable Community).</li>
+                            <li>• Hành động: Đòn bẩy AI sản xuất nội dung quy mô lớn.</li>
+                            <li>• Thương mại: Affiliate 2.0 (Trendio), Bán khóa học/Template.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="mb-12 flex justify-between items-center w-full flex-col md:flex-row right-timeline reveal delay-200">
+                    <div class="order-1 md:w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-brand-accent3 shadow-[0_0_15px_rgba(16,185,129,0.5)] w-12 h-12 rounded-full mb-4 md:mb-0">
+                        <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
+                    </div>
+                    <div class="order-1 glass-panel rounded-2xl shadow-xl w-full md:w-5/12 px-6 py-6 border-l-4 border-brand-accent3">
+                        <h3 class="font-bold text-white text-xl mb-1">Năm 2026: Scale & Ownership</h3>
+                        <p class="text-brand-accent3 text-sm font-semibold mb-3">Biên lợi nhuận mở rộng cực đại (FCF)</p>
+                        <ul class="text-sm leading-snug tracking-wide text-slate-400 space-y-2">
+                            <li>• Mục tiêu: Tự động hóa & Tính độc lập nền tảng.</li>
+                            <li>• Hành động: AI Agent quản lý Livestream/Sales tự động.</li>
+                            <li>• Web3: Phát hành NFT/Voucher on-chain (Viction) lập DAO chia sẻ lợi nhuận.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Management (Anti-fragile) -->
+    <section class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white">Quản Trị Rủi Ro (Anti-fragile)</h2>
+                <p class="mt-4 text-slate-400">Bảo vệ thành quả trước những biến động về Thuế, Thuật toán và Pháp lý.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Risk 1 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 reveal">
+                    <div class="text-red-400 mb-4 flex items-center gap-2 font-bold">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Cú Sốc Thuế 2025
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Nghị định 117/2025 siết quản lý người thu nhập >500tr/năm. Sàn TMĐT khấu trừ thuế tại nguồn.</p>
+                    <div class="bg-brand-accent3/10 p-4 rounded-xl border border-brand-accent3/30">
+                        <div class="text-brand-accent3 font-bold text-sm mb-1"><i class="fa-solid fa-shield"></i> Giải pháp:</div>
+                        <p class="text-slate-300 text-sm">Minh bạch hóa hồ sơ tài chính & kế toán ngay từ Giai đoạn 0.</p>
+                    </div>
+                </div>
+
+                <!-- Risk 2 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 reveal delay-100">
+                    <div class="text-red-400 mb-4 flex items-center gap-2 font-bold">
+                        <i class="fa-solid fa-scale-balanced"></i> Bản Quyền AI
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Rủi ro pháp lý khi sử dụng data không rõ nguồn gốc. (Khung pháp lý AI VN áp dụng T3/2026).</p>
+                    <div class="bg-brand-accent3/10 p-4 rounded-xl border border-brand-accent3/30">
+                        <div class="text-brand-accent3 font-bold text-sm mb-1"><i class="fa-solid fa-shield"></i> Giải pháp:</div>
+                        <p class="text-slate-300 text-sm">Sử dụng On-chain Identity (Web3) xác thực bản quyền gốc tài sản.</p>
+                    </div>
+                </div>
+
+                <!-- Risk 3 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 reveal delay-200">
+                    <div class="text-red-400 mb-4 flex items-center gap-2 font-bold">
+                        <i class="fa-solid fa-arrow-trend-down"></i> Rủi Ro Thuật Toán
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Phụ thuộc nền tảng "mượn". Có thể mất 80% traffic mạng xã hội chỉ sau một đêm update.</p>
+                    <div class="bg-brand-accent3/10 p-4 rounded-xl border border-brand-accent3/30">
+                        <div class="text-brand-accent3 font-bold text-sm mb-1"><i class="fa-solid fa-shield"></i> Giải pháp:</div>
+                        <p class="text-slate-300 text-sm">Dịch chuyển Fan sang Cộng đồng đặc quyền (Token-gated) tự sở hữu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & Footer -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark to-brand-accent1/20 z-0"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center glass-panel p-12 rounded-3xl border border-brand-accent1/30">
+            <h2 class="text-4xl font-display font-bold text-white mb-6">Trở Thành Đối Tác Chiến Lược</h2>
+            <p class="text-slate-300 mb-10 text-lg">Tham gia cùng chúng tôi để nắm bắt cơ hội vốn hóa "Lòng trung thành" của thế hệ Gen Z trong kỷ nguyên AI & Web3.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="px-8 py-4 rounded-full bg-gradient-to-r from-brand-accent1 to-brand-accent2 text-white font-bold hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] transition-all">
+                    Tải Full Pitch Deck (PDF)
+                </button>
+                <button class="px-8 py-4 rounded-full border border-slate-500 text-white font-bold hover:bg-slate-800 transition-colors">
+                    Liên hệ Team Đội ngũ
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0b1120] py-8 border-t border-slate-800 text-center">
+        <div class="max-w-7xl mx-auto px-4 text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2026 Creative Economy Engine. Báo cáo chiến lược CSO & CFO.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-brand-accent2"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-brand-accent2"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-brand-accent2"><i class="fa-brands fa-discord text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactivity Script -->
+    <script>
+        // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // Navbar blur effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.add('bg-brand-dark/80');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.remove('bg-brand-dark/80');
+            }
+        });
+    </script>
+</body>
+</html>
