@@ -87,6 +87,31 @@
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn-gold:hover { opacity: 0.88; transform: scale(1.03); }
+
+    /* --- Góc nhỏ cổ vũ (Social Notification) --- */
+    #cheer-box {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      max-width: 320px;
+      background-color: #2C3E50;
+      color: #ECF0F1;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.5;
+      transform: translateX(-120%);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      border-left: 4px solid #C9A44E;
+    }
+    #cheer-box.show {
+      transform: translateX(0);
+    }
   </style>
 </head>
 
@@ -1779,6 +1804,47 @@
 <button onclick="window.scrollTo({top:0,behavior:'smooth'})"
   class="fixed bottom-6 right-6 w-12 h-12 bg-gold text-white rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-gold-dark transition-colors z-40"
   title="Lên đầu trang">↑</button>
+
+<!-- ============================================================
+     GÓC NHỎ CỔ VŨ - SOCIAL NOTIFICATION
+============================================================ -->
+<div id="cheer-box"></div>
+
+<script>
+  (function() {
+    const quotes = [
+      "Chị ơi, hôm nay chị đã tiến bộ hơn hôm qua 1% rồi đó. Cứ thong thả mà đi, chị nhé!",
+      "AI chỉ là bàn tay thôi, chính kinh nghiệm 20 năm của chị mới là 'linh hồn' của nội dung này.",
+      "Mỗi lần bấm nút là một lần chị chiến thắng nỗi sợ công nghệ. Chị giỏi lắm!",
+      "Đừng lo video chưa đẹp, một video dở còn tốt hơn vạn lần một video chưa bao giờ được đăng.",
+      "Kinh nghiệm từ những lần chơi họ, bán điện thoại của chị là mỏ vàng mà giới trẻ không có đâu.",
+      "Chị 1983 nhưng tinh thần luôn trẻ trung. Internet đang chờ nghe câu chuyện của chị.",
+      "Mệt thì mình nghỉ một chút, rồi lại cùng 'đứa em' AI tiếp tục hành trình chị nha.",
+      "Hãy tưởng tượng ngày chị nhận được hoa hồng đầu tiên, mọi nỗ lực hôm nay đều xứng đáng!",
+      "Không phải ai ở tuổi chị cũng dám bắt đầu cái mới. Chị thực sự là một phụ nữ bản lĩnh!",
+      "Ngày hôm nay của chị thật tuyệt vời vì chị đã chọn không bỏ cuộc. Chúc chị ngủ ngon và mơ về triệu view!"
+    ];
+
+    const cheerBox = document.getElementById('cheer-box');
+    
+    function showNotification() {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      cheerBox.innerText = randomQuote;
+      cheerBox.classList.add('show');
+      
+      // Tự động ẩn sau 10 giây
+      setTimeout(() => {
+        cheerBox.classList.remove('show');
+      }, 10000);
+    }
+
+    // Chạy lần đầu sau 5 giây khi mở trang
+    setTimeout(showNotification, 5000);
+
+    // Lặp lại mỗi 20 giây
+    setInterval(showNotification, 20000);
+  })();
+</script>
 
 </body>
 </html>
